@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BasicProject3</string>
+    <string name="login_account">Login Account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_up_link">Don\'t have an account? Sign Up</string>
+    <string name="sign_in_link">Already have account? Sign In</string>
+    <string name="your_email">Your Email</string>
+    <string name="email">Email</string>
+    <string name="username_hint">Username Hint</string>
+    <string name="password_hint">Pass Hint</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="verification_code">Verification Code</string>
+</resources>
