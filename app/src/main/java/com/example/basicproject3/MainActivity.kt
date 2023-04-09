@@ -9,18 +9,27 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.basicproject3.sign.up.SignUpActivity
+import com.example.basicproject3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_in_form)
+        // Ẩn thanh tiêu đề ứng dụng
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-        val email = findViewById<EditText>(R.id.etSignInEmail)
+//        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+
+        /*val email = findViewById<EditText>(R.id.etSignInEmail)
         val password = findViewById<EditText>(R.id.etSignInPassword)
         val signIn = findViewById<Button>(R.id.btnSignIn)
 
@@ -31,9 +40,10 @@ class MainActivity : AppCompatActivity() {
             else {
                 Toast.makeText(applicationContext, "Login Failure", Toast.LENGTH_SHORT).show()
             }
-        })
+        })=
 
-        val signUpLink = findViewById<View>(R.id.txtSignUpLink) as TextView
+*/
+        /*val signUpLink = findViewById<View>(R.id.txtSignUpLink) as TextView
         val text = "Don't have an account? Sign Up"
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
@@ -51,6 +61,6 @@ class MainActivity : AppCompatActivity() {
         ssb.setSpan(clickableSpan, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         signUpLink.text = ssb
-        signUpLink.movementMethod = LinkMovementMethod.getInstance()
+        signUpLink.movementMethod = LinkMovementMethod.getInstance()*/
     }
 }

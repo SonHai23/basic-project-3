@@ -1,4 +1,4 @@
-package com.example.basicproject3.register
+package com.example.basicproject3.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,44 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/layoutRegisterFragment"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:layout_gravity="center"
     android:backgroundTint="#dff9fb">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:text="@string/sign_up"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtSignUpEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="@string/email_address">
-
-        <EditText
-            android:id="@+id/etSignUpEmail"
-            android:layout_width="290dp"
-            android:layout_height="50dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--<com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtVerificationCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="@string/verification_code">
-
-        <EditText
-            android:id="@+id/etVerificationCode"
-            android:layout_width="290dp"
-            android:layout_height="50dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtSignUpUsername"
@@ -49,8 +18,30 @@
 
         <EditText
             android:id="@+id/etSignUpUsername"
-            android:layout_width="290dp"
-            android:layout_height="50dp" />
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:textSize="16sp"
+            android:background="@drawable/edittext_background"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtSignUpEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/email_address">
+
+        <EditText
+            android:id="@+id/etSignUpEmail"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:textSize="16sp"
+            android:background="@drawable/edittext_background" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,12 +50,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/create_password">
+        android:hint="@string/create_password"
+        app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etSignUpPassword"
-            android:layout_width="290dp"
-            android:layout_height="50dp"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:textSize="16sp"
+            android:background="@drawable/edittext_background"
             android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,22 +70,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/confirm_password">
+        android:hint="@string/confirm_password"
+        app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etConfirmPassword"
-            android:layout_width="290dp"
-            android:layout_height="50dp"
+            android:layout_width="320dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:textSize="16sp"
+            android:background="@drawable/edittext_background"
             android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="290dp"
-        android:layout_height="60dp"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#353b48"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:textSize="16sp"
+        android:background="@drawable/social_btn_background"
         android:text="@string/sign_up" />
 
     <TextView
@@ -97,5 +101,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:textSize="13sp"
         android:text="@string/sign_in_link"/>
 </LinearLayout>

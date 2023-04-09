@@ -1,4 +1,4 @@
-package com.example.basicproject3.register
+package com.example.basicproject3.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,15 +11,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import com.example.basicproject3.R
-import com.example.basicproject3.databinding.FragmentLoginBinding
 import com.example.basicproject3.databinding.FragmentRegisterBinding
-import com.example.basicproject3.login.LoginActivity
-import com.example.basicproject3.login.LoginFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null

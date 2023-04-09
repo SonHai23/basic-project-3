@@ -1,4 +1,4 @@
-package com.example.basicproject3.login
+package com.example.basicproject3.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.basicproject3.databinding.FragmentLoginBinding
 import com.example.basicproject3.home.HomeActivity
-import com.example.basicproject3.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
