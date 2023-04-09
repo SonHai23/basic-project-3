@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:backgroundTint="#dff9fb"
     android:gravity="center"
-    android:backgroundTint="#dff9fb">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/login_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_account"/>
+        android:layout_marginTop="100dp"
+        android:text="@string/welcome" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtSignInEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/your_email">
+        android:hint="@string/email_address">
 
         <EditText
             android:id="@+id/etSignInEmail"
             android:layout_width="290dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -31,12 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/password">
+        android:hint="@string/password"
+        app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etSignInPassword"
             android:layout_width="290dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,13 +50,36 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="#353b48"
-        android:text="@string/sign_in"/>
+        android:text="@string/sign_in" />
 
     <TextView
         android:id="@+id/txtSignUpLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/sign_up_link"/>
+        android:text="@string/sign_up_link" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgGoogleIcon"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/google"/>
+
+        <ImageView
+            android:id="@+id/imgFacebookIcon"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/facebook"/>
+
+    </LinearLayout>
 
 </LinearLayout>
