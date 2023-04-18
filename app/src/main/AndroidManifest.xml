@@ -17,7 +17,7 @@
             android:name=".auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".guest.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".auth.RegisterActivity"
