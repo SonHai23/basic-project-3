@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
             setHomeAsUpIndicator(R.drawable.ic_menu)
         }*/
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }
