@@ -31,11 +31,6 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_search, R.id.navigation_ticket, R.id.navigation_favourite, R.id.navigation_profile
             )
         )
-        /*supportActionBar?.apply {
-            setBackgroundDrawable(ColorDrawable(getResources().getColor(R.color.colorPrimary)))
-            setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_menu)
-        }*/
 
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

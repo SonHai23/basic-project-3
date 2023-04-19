@@ -3,7 +3,8 @@
     <style name="Theme.BasicProject3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
 <!--        <item name="colorPrimary">@color/purple_500</item>-->
-<!--        Ẩn thanh tiêu đề ứng dụng-->
+        <item name="colorPrimary">#2d3436</item>
+        <!--        Ẩn thanh tiêu đề ứng dụng-->
 <!--        <item name="windowNoTitle">true</item>-->
 
         <item name="colorPrimaryVariant">@color/purple_700</item>

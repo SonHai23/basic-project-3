@@ -13,15 +13,14 @@
         android:id="@+id/txtSignUpUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:hint="@string/username">
 
         <EditText
             android:id="@+id/etSignUpUsername"
-            android:layout_width="320dp"
+            android:layout_width="360dp"
             android:layout_height="55dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textSize="16sp"
             android:background="@drawable/edittext_background"/>
 
@@ -31,15 +30,15 @@
         android:id="@+id/txtSignUpEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/email_address">
 
         <EditText
             android:id="@+id/etSignUpEmail"
-            android:layout_width="320dp"
+            android:layout_width="360dp"
             android:layout_height="55dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textSize="16sp"
             android:background="@drawable/edittext_background" />
 
@@ -49,16 +48,16 @@
         android:id="@+id/txtSignUpPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/create_password"
         app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etSignUpPassword"
-            android:layout_width="320dp"
+            android:layout_width="360dp"
             android:layout_height="55dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textSize="16sp"
             android:background="@drawable/edittext_background"
             android:inputType="textPassword"/>
@@ -69,16 +68,16 @@
         android:id="@+id/txtConfirmPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/confirm_password"
         app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/etConfirmPassword"
-            android:layout_width="320dp"
+            android:layout_width="360dp"
             android:layout_height="55dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textSize="16sp"
             android:background="@drawable/edittext_background"
             android:inputType="textPassword"/>
@@ -87,11 +86,11 @@
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="320dp"
+        android:layout_width="360dp"
         android:layout_height="55dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:textSize="16sp"
         android:background="@drawable/social_btn_background"
         android:text="@string/sign_up" />
@@ -100,7 +99,7 @@
         android:id="@+id/txtSignInLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="24dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
         android:textSize="13sp"
