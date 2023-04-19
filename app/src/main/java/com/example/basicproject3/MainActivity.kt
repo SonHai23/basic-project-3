@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Ẩn thanh tiêu đề ứng dụng
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        requestWindowFeature(Window.FEATURE_NO_TITLE)
 
 //        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)

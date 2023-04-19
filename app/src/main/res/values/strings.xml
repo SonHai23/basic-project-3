@@ -28,4 +28,10 @@
     <string name="or_sign_up_with">or Sign up with</string>
     <string name="google">Google</string>
     <string name="facebook">Facebook</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_ticket">Ticket</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_profile">Profile</string>
 </resources>

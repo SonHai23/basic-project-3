@@ -13,7 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.basicproject3.databinding.FragmentLoginBinding
-import com.example.basicproject3.guest.HomeActivity
+import com.example.basicproject3.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
