@@ -74,12 +74,8 @@ class RegisterFragment : Fragment() {
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                /*val intent = Intent(activity, LoginActivity::class.java)
-                startActivity(intent)*/
-                val transaction = fragmentManager?.beginTransaction()
-                transaction?.replace(R.id.layoutRegisterFragment, LoginFragment())
-                transaction?.addToBackStack(null)
-                transaction?.commit()
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
