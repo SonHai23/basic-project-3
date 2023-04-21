@@ -47,10 +47,10 @@ class RegisterFragment : Fragment() {
             val name = binding.etSignUpUsername.text.toString()
             val email = binding.etSignUpEmail.text.toString()
             val password = binding.etSignUpPassword.text.toString()
-            val comfirmPassword = binding.etConfirmPassword.text.toString()
+            val passwordConfirm = binding.etConfirmPassword.text.toString()
 
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                if (password == comfirmPassword) {
+                if (password == passwordConfirm) {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
                             val intent = Intent(activity, LoginActivity::class.java)
