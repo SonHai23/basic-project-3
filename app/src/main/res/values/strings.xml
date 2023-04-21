@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BasicProject3</string>
+    <string name="app_name">Eventify</string>
     <string name="login_account">Login Account</string>
     <string name="username">Your name</string>
     <string name="password">Password</string>
