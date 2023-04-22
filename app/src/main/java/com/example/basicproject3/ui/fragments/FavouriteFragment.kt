@@ -1,4 +1,4 @@
-package com.example.basicproject3.ui.favourite
+package com.example.basicproject3.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.basicproject3.databinding.FragmentFavouriteBinding
-import com.example.basicproject3.ui.home.HomeViewModel
+import com.example.basicproject3.ui.viewmodels.FavouriteViewModel
 
 class FavouriteFragment : Fragment() {
     private var _binding: FragmentFavouriteBinding? = null

@@ -1,12 +1,13 @@
-package com.example.basicproject3.ui.profile.guest
+package com.example.basicproject3.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GuestViewModel : ViewModel() {
+class TicketViewModel : ViewModel() {
+
     private val _text = MutableLiveData<String>().apply {
-        value = "This is guest Fragment"
+        value = "This is ticket Fragment"
     }
     val text: LiveData<String> = _text
 }
