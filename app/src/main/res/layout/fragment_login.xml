@@ -7,25 +7,38 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etSignInEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtSignInEmail"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:autofillHints="emailAddress"
-        android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
-        android:textSize="@dimen/text_size" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etSignInPassword"
+        <EditText
+            android:id="@+id/etSignInEmail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textSize="@dimen/text_size" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtSignInPassword"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:hint="@string/password"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:textSize="@dimen/text_size"
-        app:passwordToggleEnabled="true" />
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/etSignInPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="24dp"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textSize="@dimen/text_size"
+            app:passwordToggleEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSignIn"
@@ -41,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="15dp"
         android:text="@string/forgot_password"
         android:textSize="13sp" />
 
@@ -57,7 +70,7 @@
             android:layout_height="1dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#707070" />
+            android:background="@color/primary" />
 
         <TextView
             android:id="@+id/txtOrLoginWith"
@@ -73,37 +86,37 @@
             android:layout_height="1dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#707070" />
+            android:background="@color/primary" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp"
+        android:layout_margin="20dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/layoutGoogle"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:background="@drawable/social_btn_background"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/imgGoogleIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/google"
-                android:contentDescription="@string/google" />
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/google"
+                app:srcCompat="@drawable/google" />
 
             <TextView
                 android:id="@+id/txtGoogleLink"
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/google"
@@ -113,24 +126,25 @@
 
         <LinearLayout
             android:id="@+id/layoutFacebook"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:background="@drawable/social_btn_background"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/imgFacebookIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"
-                app:srcCompat="@drawable/facebook"
-                android:contentDescription="@string/facebook" />
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/facebook"
+                app:srcCompat="@drawable/facebook" />
 
             <TextView
                 android:id="@+id/txtFacebookLink"
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/facebook"
