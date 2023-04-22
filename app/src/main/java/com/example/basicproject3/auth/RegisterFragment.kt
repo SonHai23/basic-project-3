@@ -12,7 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.basicproject3.R
+import com.example.basicproject3.MainActivity
 import com.example.basicproject3.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -53,7 +53,7 @@ class RegisterFragment : Fragment() {
                 if (password == passwordConfirm) {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(activity, LoginActivity::class.java)
+                            val intent = Intent(activity, MainActivity::class.java)
                             startActivity(intent)
                         } else {
                             Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -69,12 +69,11 @@ class RegisterFragment : Fragment() {
         }
 
         // Handle when click Sign up
-        val loginFragment = LoginFragment()
         val text = "Don't have an account? Sign in"
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                val intent = Intent(activity, LoginActivity::class.java)
+                val intent = Intent(activity, MainActivity::class.java)
                 startActivity(intent)
             }
 

@@ -1,12 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.BasicProject3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-<!--        <item name="colorPrimary">@color/purple_500</item>-->
-        <item name="colorPrimary">#2d3436</item>
+        <item name="colorPrimary">@color/primary</item>
         <!--        Ẩn thanh tiêu đề ứng dụng-->
-<!--        <item name="windowNoTitle">true</item>-->
-
+        <!--        <item name="windowNoTitle">true</item>-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
