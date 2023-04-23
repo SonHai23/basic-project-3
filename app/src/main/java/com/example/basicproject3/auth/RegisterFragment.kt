@@ -53,7 +53,7 @@ class RegisterFragment : Fragment() {
                 if (password == passwordConfirm) {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            val intent = Intent(activity, MainActivity::class.java)
+                            val intent = Intent(activity, LoginActivity::class.java)
                             startActivity(intent)
                         } else {
                             Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -73,7 +73,7 @@ class RegisterFragment : Fragment() {
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                val intent = Intent(activity, MainActivity::class.java)
+                val intent = Intent(activity, LoginActivity::class.java)
                 startActivity(intent)
             }
 
@@ -96,10 +96,10 @@ class RegisterFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
+    /*companion object {
         fun newInstance(param1: String, param2: String) =
             RegisterFragment().apply {
 
             }
-    }
+    }*/
 }

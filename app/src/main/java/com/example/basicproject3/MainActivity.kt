@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
 
         /*val email = findViewById<EditText>(R.id.etSignInEmail)
         val password = findViewById<EditText>(R.id.etSignInPassword)
