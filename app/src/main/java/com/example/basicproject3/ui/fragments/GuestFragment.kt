@@ -6,15 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.basicproject3.R
 import com.example.basicproject3.auth.LoginActivity
-import com.example.basicproject3.auth.RegisterActivity
 import com.example.basicproject3.databinding.FragmentGuestBinding
-import com.example.basicproject3.ui.viewmodels.GuestViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class GuestFragment : Fragment() {

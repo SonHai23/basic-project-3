@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:text="@string/or_sign_up_with"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size_small" />
 
         <View
             android:id="@+id/lineRight"

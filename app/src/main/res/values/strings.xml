@@ -36,4 +36,7 @@
     <string name="title_favourite">Favourite</string>
     <string name="title_profile">Profile</string>
     <string name="title_user">User</string>
+    <string name="notifications">Notifications</string>
+    <string name="my_event">My event</string>
+    <string name="account_setting">Account setting</string>
 </resources>

@@ -32,7 +32,7 @@
     <Button
         android:id="@+id/btnSignInLink"
         android:layout_width="290dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginVertical="60dp"
         android:background="@drawable/social_btn_background"

@@ -6,10 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.example.basicproject3.HomeActivity
-import com.example.basicproject3.R
-import com.example.basicproject3.auth.LoginActivity
 import com.example.basicproject3.databinding.FragmentUserBinding
+import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class UserFragment : Fragment() {
@@ -26,15 +27,22 @@ class UserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
         _binding = FragmentUserBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*val textView: TextView = binding.textProfile
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
+        val txtUserProfile: TextView = binding.txtUsername
+        userViewModel.text.observe(viewLifecycleOwner) {
+            txtUserProfile.text = it
+        }
 
-        binding.btnSignOutLink.setOnClickListener {
+        val txtEmailProfile: TextView = binding.txtUserEmail
+        userViewModel.text.observe(viewLifecycleOwner) {
+            txtEmailProfile.text = it
+        }
+
+        binding.txtSignOut.setOnClickListener {
             auth.signOut()
             val intent = Intent(activity, HomeActivity::class.java)
             startActivity(intent)
