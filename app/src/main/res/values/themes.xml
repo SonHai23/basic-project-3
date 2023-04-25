@@ -15,4 +15,8 @@
         <item name="android:statusBarColor">@color/silver</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="ProFilePictureBackground">
+        <item name="android:background">@color/clouds</item>
+    </style>
 </resources>

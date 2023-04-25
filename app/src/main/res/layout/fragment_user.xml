@@ -10,11 +10,11 @@
     tools:context=".ui.fragments.UserFragment">
 
     <LinearLayout
+        style="@style/ProFilePictureBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:background="@color/clouds">
+        android:paddingVertical="25dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgAvatar"
@@ -22,24 +22,23 @@
             android:layout_height="110dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/avatar_profile_default"/>
+            android:src="@drawable/avatar_profile_default" />
 
         <TextView
             android:id="@+id/txtUsername"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="3dp"
             android:gravity="center"
-            android:layout_gravity="center_horizontal"
             android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/txtUserEmail"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:gravity="center"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 
@@ -51,11 +50,11 @@
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
         android:layout_gravity="center_horizontal"
-        android:drawableEnd="@drawable/change_size_icon"
         android:drawablePadding="10dp"
         android:textSize="@dimen/text_size"
         android:text="@string/notifications"
-        android:textColor="@color/blue_night"/>
+        android:textColor="@color/blue_night"
+        app:drawableEndCompat="@drawable/change_size_icon" />
 
     <!--<View
         android:id="@+id/line_1"
@@ -74,11 +73,11 @@
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
         android:layout_gravity="center_horizontal"
-        android:drawableEnd="@drawable/change_size_icon"
         android:drawablePadding="10dp"
         android:textSize="@dimen/text_size"
         android:text="@string/account_setting"
-        android:textColor="@color/blue_night"/>
+        android:textColor="@color/blue_night"
+        app:drawableEndCompat="@drawable/change_size_icon" />
 
     <!--<View
         android:id="@+id/line_2"
@@ -97,11 +96,11 @@
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
         android:layout_gravity="center_horizontal"
-        android:drawableEnd="@drawable/change_size_icon"
         android:drawablePadding="10dp"
         android:textSize="@dimen/text_size"
         android:text="@string/my_event"
-        android:textColor="@color/blue_night"/>
+        android:textColor="@color/blue_night"
+        app:drawableEndCompat="@drawable/change_size_icon" />
 
     <!--<View
         android:id="@+id/line_3"
@@ -120,11 +119,11 @@
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
         android:layout_gravity="center_horizontal"
-        android:drawableEnd="@drawable/change_size_icon"
         android:drawablePadding="10dp"
         android:textSize="@dimen/text_size"
         android:text="@string/sign_out"
-        android:textColor="@color/blue_night"/>
+        android:textColor="@color/blue_night"
+        app:drawableEndCompat="@drawable/change_size_icon" />
 
     <!--<Button
         android:id="@+id/btnSignOutLink"

@@ -2,9 +2,7 @@ package com.example.basicproject3.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.basicproject3.R
 import com.example.basicproject3.databinding.ActivityLoginBinding
-import com.example.basicproject3.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
