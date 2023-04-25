@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.BasicProject3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -17,5 +17,10 @@
 
     <style name="ProFilePictureBackground">
         <item name="android:background">@color/background_dark_mode</item>
+    </style>
+
+    <style name="NormalTextView" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/blue_night</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 </resources>

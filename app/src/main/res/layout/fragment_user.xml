@@ -44,17 +44,16 @@
 
     <TextView
         android:id="@+id/txtNotifications"
+        style="@style/NormalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
+        android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="10dp"
-        android:textSize="@dimen/text_size"
         android:text="@string/notifications"
-        android:textColor="@color/blue_night"
-        app:drawableEndCompat="@drawable/change_size_icon" />
+        app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <!--<View
         android:id="@+id/line_1"
@@ -67,17 +66,16 @@
 
     <TextView
         android:id="@+id/txtAccountSetting"
+        style="@style/NormalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="17dp"
+        android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="10dp"
-        android:textSize="@dimen/text_size"
         android:text="@string/account_setting"
-        android:textColor="@color/blue_night"
-        app:drawableEndCompat="@drawable/change_size_icon" />
+        app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <!--<View
         android:id="@+id/line_2"
@@ -90,17 +88,16 @@
 
     <TextView
         android:id="@+id/txtMyEvent"
+        style="@style/NormalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="17dp"
+        android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="10dp"
-        android:textSize="@dimen/text_size"
         android:text="@string/my_event"
-        android:textColor="@color/blue_night"
-        app:drawableEndCompat="@drawable/change_size_icon" />
+        app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <!--<View
         android:id="@+id/line_3"
@@ -113,17 +110,16 @@
 
     <TextView
         android:id="@+id/txtSignOut"
+        style="@style/NormalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="17dp"
+        android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:layout_gravity="center_horizontal"
-        android:drawablePadding="10dp"
-        android:textSize="@dimen/text_size"
         android:text="@string/sign_out"
-        android:textColor="@color/blue_night"
-        app:drawableEndCompat="@drawable/change_size_icon" />
+        app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <!--<Button
         android:id="@+id/btnSignOutLink"
