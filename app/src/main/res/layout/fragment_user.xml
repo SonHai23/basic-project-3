@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    tools:context=".ui.fragments.UserFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@color/clouds">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/avatar_profile_default"/>
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/txtUserEmail"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableEnd="@drawable/change_size_icon"
+        android:drawablePadding="10dp"
+        android:textSize="@dimen/text_size"
+        android:text="@string/notifications"
+        android:textColor="@color/blue_night"/>
+
+    <!--<View
+        android:id="@+id/line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/primary" />-->
+
+    <TextView
+        android:id="@+id/txtAccountSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableEnd="@drawable/change_size_icon"
+        android:drawablePadding="10dp"
+        android:textSize="@dimen/text_size"
+        android:text="@string/account_setting"
+        android:textColor="@color/blue_night"/>
+
+    <!--<View
+        android:id="@+id/line_2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/primary" />-->
+
+    <TextView
+        android:id="@+id/txtMyEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableEnd="@drawable/change_size_icon"
+        android:drawablePadding="10dp"
+        android:textSize="@dimen/text_size"
+        android:text="@string/my_event"
+        android:textColor="@color/blue_night"/>
+
+    <!--<View
+        android:id="@+id/line_3"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/primary" />-->
+
+    <TextView
+        android:id="@+id/txtSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="5dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableEnd="@drawable/change_size_icon"
+        android:drawablePadding="10dp"
+        android:textSize="@dimen/text_size"
+        android:text="@string/sign_out"
+        android:textColor="@color/blue_night"/>
+
+    <!--<Button
+        android:id="@+id/btnSignOutLink"
+        android:layout_width="290dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="60dp"
+        android:background="@drawable/social_btn_background"
+        android:text="@string/sign_out"
+        android:textSize="@dimen/text_size"
+        android:textAllCaps="false" />-->
+
+</LinearLayout>

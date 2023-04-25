@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <!--<androidx.fragment.app.FragmentContainerView
         android:id="@+id/layoutLoginFragment"
         android:name="com.example.basicproject3.auth.LoginFragment"
         android:layout_width="0dp"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
