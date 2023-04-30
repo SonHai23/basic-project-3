@@ -20,23 +20,13 @@ class User(
     val image: String,
     val role: String*/
 ) {
-    private lateinit var auth: FirebaseAuth
-    fun getUsername(): Task<DocumentSnapshot> {
-        val data = Firebase.firestore
-        val uid = auth.currentUser?.uid
-        val docRef = data.collection("users").document(uid!!)
+    private val auth = FirebaseAuth.getInstance()
 
-        /*docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d(TAG, "No such document")
-                }
-            }
-            .addOnFailureListener() { exception ->
-                Log.d(TAG, "get failed with ", exception)
-            }*/
+    fun getUsername(): Task<DocumentSnapshot> {
+        val db = Firebase.firestore
+        val uid = auth.currentUser?.uid
+        val docRef = db.collection("users").document(uid!!)
+
         return docRef.get()
     }
 }

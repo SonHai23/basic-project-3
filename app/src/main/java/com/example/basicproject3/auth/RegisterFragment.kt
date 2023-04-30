@@ -67,7 +67,8 @@ class RegisterFragment : Fragment() {
                             val uid = auth.currentUser?.uid
 
                             val user = hashMapOf(
-                                "name" to name
+                                "name" to name,
+                                "email" to email
                             )
 
                             data.collection("users").document(uid!!)
