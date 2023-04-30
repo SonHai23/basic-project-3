@@ -36,7 +36,11 @@
     <string name="title_favourite">Favourite</string>
     <string name="title_profile">Profile</string>
     <string name="title_user">User</string>
+    <string name="title_change_profile">Change profile</string>
     <string name="notifications">Notifications</string>
     <string name="my_event">My event</string>
     <string name="account_setting">Account setting</string>
+    <string name="save_changes">Save changes</string>
+    <string name="change_password">Change password</string>
+    <string name="change_your_name">Change your name</string>
 </resources>

@@ -10,10 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.basicproject3.HomeActivity
+import com.example.basicproject3.R
 import com.example.basicproject3.databinding.FragmentUserBinding
 import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -65,6 +68,27 @@ class UserFragment : Fragment() {
             .addOnFailureListener() { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
             }*/
+
+        /*val user = Firebase.auth.currentUser
+
+        user?.let {
+            // Name, email address, and profile photo Url
+            val name = it.displayName
+            val email = it.email
+            val photoUrl = it.photoUrl
+
+            // Check if user's email is verified
+            val emailVerified = it.isEmailVerified
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            val uid = it.uid
+        }*/
+
+        binding.txtAccountSetting.setOnClickListener {
+            findNavController().navigate(R.id.navigate_to_change_profile_fragment)
+        }
 
         binding.txtSignOut.setOnClickListener {
             auth.signOut()

@@ -44,5 +44,17 @@
         android:id="@+id/navigation_user"
         android:name="com.example.basicproject3.ui.fragments.UserFragment"
         android:label="@string/title_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user">
+
+        <action
+            android:id="@+id/navigate_to_change_profile_fragment"
+            app:destination="@id/change_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/change_profile"
+        android:name="com.example.basicproject3.ui.fragments.ChangeProfileFragment"
+        android:label="@string/title_change_profile"
+        tools:layout="@layout/fragment_change_profile" />
+
 </navigation>
