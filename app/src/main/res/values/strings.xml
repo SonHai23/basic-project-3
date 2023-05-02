@@ -43,4 +43,5 @@
     <string name="save_changes">Save changes</string>
     <string name="change_password">Change password</string>
     <string name="change_your_name">Change your name</string>
+    <string name="title_categories">Categories</string>
 </resources>

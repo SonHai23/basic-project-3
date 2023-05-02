@@ -14,21 +14,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.basicproject3.MainActivity
 import com.example.basicproject3.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.ktx.firestore
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
-//    private lateinit var currentUser: FirebaseAuth
-//    private lateinit var data: FirebaseFirestore
-//    private lateinit var uid: String
-//    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,22 +34,14 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_register, container, false)
 
         auth = FirebaseAuth.getInstance()
-        /*currentUser = FirebaseAuth.getInstance()
-        val uid = currentUser.uid*/
-        val data = Firebase.firestore
-//        database = FirebaseDatabase.getInstance()
+        val db: FirebaseFirestore = Firebase.firestore
 
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         val rootView = binding.root
 
-        // Set click listener for button
         binding.btnSignUp.setOnClickListener {
-            // Handle button click event
-
             val name = binding.etSignUpUsername.text.toString().trim()
             val email = binding.etSignUpEmail.text.toString().trim()
             val password = binding.etSignUpPassword.text.toString().trim()
@@ -68,18 +55,29 @@ class RegisterFragment : Fragment() {
 
                             val user = hashMapOf(
                                 "name" to name,
-                                "email" to email
                             )
 
-                            data.collection("users").document(uid!!)
+                            db.collection("users").document(uid!!)
                                 .set(user)
-                                .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully written!") }
-                                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+                                .addOnSuccessListener {
+                                    Log.d(
+                                        "TAG",
+                                        "DocumentSnapshot successfully written!"
+                                    )
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w(
+                                        TAG,
+                                        "Error writing document",
+                                        e
+                                    )
+                                }
 
                             val intent = Intent(activity, LoginActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 } else {

@@ -1,4 +1,4 @@
 package com.example.basicproject3.data.model
 
-class Category(id: String, name: String) {
+data class Category(val id: String, val name: String) {
 }

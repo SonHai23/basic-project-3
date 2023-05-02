@@ -16,12 +16,20 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/blue_night</item>
+    </style>
+
     <style name="ProFilePictureBackground">
         <item name="android:background">@color/clouds</item>
     </style>
 
-    <style name="NormalTextView" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/blue_night</item>
+    <style name="NormalTextView" parent="DefaultTextColor">
         <item name="android:textSize">@dimen/text_size</item>
+    </style>
+    
+    <style name="PageTitle" parent="DefaultTextColor">
+        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
