@@ -41,6 +41,8 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val rootView = binding.root
 
+//        binding.txtSignInPassword.setHintEnabled(false)
+
         // Set click listener for button
         binding.btnSignIn.setOnClickListener {
             val email = binding.etSignInEmail.text.toString()

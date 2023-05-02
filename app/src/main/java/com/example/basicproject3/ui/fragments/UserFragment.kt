@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 
 class UserFragment : Fragment() {
     /*override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +41,19 @@ class UserFragment : Fragment() {
         val root: View = binding.root
 
         val txtUserProfile: TextView = binding.txtUsername
-        userViewModel.text.observe(viewLifecycleOwner) {
+        userViewModel.profileInformation.observe(viewLifecycleOwner) {
             txtUserProfile.text = it.name
         }
 
         val txtUserEmailProfile: TextView = binding.txtUserEmail
-        userViewModel.text.observe(viewLifecycleOwner) {
+        userViewModel.profileInformation.observe(viewLifecycleOwner) {
             txtUserEmailProfile.text = it.email
+        }
+
+        val imgUserAvatar: ImageView = binding.imgAvatar
+        userViewModel.profileAvatar.observe(viewLifecycleOwner) {
+            // Su dung Picasso de load image
+            Picasso.get().load(it).memoryPolicy(MemoryPolicy.NO_CACHE).placeholder(R.drawable.avatar_profile_default).into(imgUserAvatar)
         }
 
         // Get data from firestore
