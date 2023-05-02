@@ -21,14 +21,14 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_sign_in, container, false)
 
@@ -94,9 +94,9 @@ class LoginFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-            }
-    }
+//    companion object {
+//        fun newInstance(param1: String, param2: String) =
+//            LoginFragment().apply {
+//            }
+//    }
 }
