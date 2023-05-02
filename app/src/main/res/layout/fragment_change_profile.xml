@@ -10,12 +10,14 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgAvatar"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="25dp"
-        android:src="@drawable/change_image" />
+        android:src="@drawable/camera_super_super_small_500"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/clouds"/>
 
     <TextView
         android:id="@+id/txtChangeYourName"
@@ -44,7 +46,7 @@
         app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <Button
-        android:id="@+id/btnSignInLink"
+        android:id="@+id/btnSaveChanges"
         android:layout_width="290dp"
         android:layout_height="48dp"
         android:layout_gravity="center"

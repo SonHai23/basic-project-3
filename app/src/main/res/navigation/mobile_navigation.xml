@@ -55,6 +55,11 @@
         android:id="@+id/change_profile"
         android:name="com.example.basicproject3.ui.fragments.ChangeProfileFragment"
         android:label="@string/title_change_profile"
-        tools:layout="@layout/fragment_change_profile" />
+        tools:layout="@layout/fragment_change_profile">
+
+        <action
+            android:id="@+id/navigate_change_profile_fragment_to_user_fragment"
+            app:destination="@id/navigation_user"/>
+    </fragment>
 
 </navigation>

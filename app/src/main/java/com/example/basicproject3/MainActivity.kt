@@ -3,6 +3,7 @@ package com.example.basicproject3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.TextPaint
@@ -28,8 +29,14 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+        /*val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)*/
+
+        Handler().postDelayed({
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 1000)
 
         /*val email = findViewById<EditText>(R.id.etSignInEmail)
         val password = findViewById<EditText>(R.id.etSignInPassword)
@@ -42,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             else {
                 Toast.makeText(applicationContext, "Login Failure", Toast.LENGTH_SHORT).show()
             }
-        })=
+        })
 
 */
         /*val signUpLink = findViewById<View>(R.id.txtSignUpLink) as TextView
