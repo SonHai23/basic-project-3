@@ -17,8 +17,8 @@
         <item name="android:windowBackground">@color/clouds</item>
     </style>
 
-    <style name="NavbarBackground" parent="Widget.Design.BottomNavigationView">
-        <item name="colorPrimary">@color/white</item>
+    <style name="ViewsBackground">
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">

@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#2D3436</color>
-    <color name="background_dark_mode">#FF292929</color>
+    <color name="background_dark_mode">#1C1C1C</color>
     <color name="clouds">#ecf0f1</color>
     <color name="silver">#bdc3c7</color>
     <color name="good_night">#485460</color>

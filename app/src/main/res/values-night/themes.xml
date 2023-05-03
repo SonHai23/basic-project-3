@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/pink</item>
 <!--        <item name="android:windowNoTitle">true</item>-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/background_dark_mode</item>
+        <item name="colorOnPrimary">@color/primary</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
@@ -17,8 +17,8 @@
         <item name="android:windowBackground">@color/background_dark_mode</item>
     </style>
 
-    <style name="NavbarBackground" parent="Widget.Design.BottomNavigationView">
-        <item name="colorPrimary">@color/primary</item>
+    <style name="ViewsBackground">
+        <item name="android:background">@color/primary</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
