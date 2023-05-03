@@ -37,4 +37,8 @@
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="TextWithChevron" parent="DefaultTextColor">
+        <item name="drawableEndCompat">@drawable/ic_chevron_dark</item>
+    </style>
 </resources>

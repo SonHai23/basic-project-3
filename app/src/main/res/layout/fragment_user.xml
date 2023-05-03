@@ -5,8 +5,8 @@
     android:id="@+id/fragment_user"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="top"
+    android:orientation="vertical"
     tools:context=".ui.fragments.UserFragment">
 
     <LinearLayout
@@ -24,8 +24,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/avatar_profile_default"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/clouds"/>
+            app:civ_border_color="@color/clouds"
+            app:civ_border_width="1dp" />
 
         <TextView
             android:id="@+id/txtUsername"
@@ -47,7 +47,7 @@
 
     <TextView
         android:id="@+id/txtNotifications"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -55,8 +55,7 @@
         android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:text="@string/notifications"
-        app:drawableEndCompat="@drawable/chevron_black_resize" />
+        android:text="@string/notifications" />
 
     <!--<View
         android:id="@+id/line_1"
@@ -69,7 +68,7 @@
 
     <TextView
         android:id="@+id/txtAccountSetting"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -77,8 +76,7 @@
         android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:text="@string/account_setting"
-        app:drawableEndCompat="@drawable/chevron_black_resize" />
+        android:text="@string/account_setting" />
 
     <!--<View
         android:id="@+id/line_2"
@@ -91,7 +89,7 @@
 
     <TextView
         android:id="@+id/txtMyEvent"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -99,8 +97,7 @@
         android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:text="@string/my_event"
-        app:drawableEndCompat="@drawable/chevron_black_resize" />
+        android:text="@string/my_event" />
 
     <!--<View
         android:id="@+id/line_3"
@@ -113,7 +110,7 @@
 
     <TextView
         android:id="@+id/txtSignOut"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -121,8 +118,7 @@
         android:drawablePadding="10dp"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:text="@string/sign_out"
-        app:drawableEndCompat="@drawable/chevron_black_resize" />
+        android:text="@string/sign_out" />
 
     <!--<Button
         android:id="@+id/btnSignOutLink"
