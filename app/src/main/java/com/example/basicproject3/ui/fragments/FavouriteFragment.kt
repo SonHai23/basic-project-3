@@ -20,7 +20,7 @@ class FavouriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(FavouriteViewModel::class.java)
+            ViewModelProvider(this)[FavouriteViewModel::class.java]
 
         _binding = FragmentFavouriteBinding.inflate(inflater, container, false)
         val root: View = binding.root

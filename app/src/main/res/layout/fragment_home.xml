@@ -8,21 +8,4 @@
     tools:context=".ui.fragments.HomeFragment">
 
 
-    <TextView
-        android:id="@+id/txtCategoriesTitle"
-        style="@style/PageTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
-        android:layout_marginVertical="@dimen/title_vertical_margin"
-        android:text="@string/title_categories" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCategories"
-        style="@style/ViewsBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/item_horizontal_margin"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager" />
 </LinearLayout>

@@ -24,7 +24,7 @@ class TicketFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val ticketViewModel =
-            ViewModelProvider(this).get(TicketViewModel::class.java)
+            ViewModelProvider(this)[TicketViewModel::class.java]
 
         _binding = FragmentTicketBinding.inflate(inflater, container, false)
         val root: View = binding.root

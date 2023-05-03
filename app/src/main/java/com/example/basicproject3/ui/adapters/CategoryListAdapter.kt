@@ -10,20 +10,20 @@ import com.example.basicproject3.data.model.Category
 
 class CategoryListAdapter(
     private val dataset: List<Category>
-) : RecyclerView.Adapter<CategoryListAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<CategoryListAdapter.CategoryViewHolder>() {
 
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
 
-        return ItemViewHolder(adapterLayout)
+        return CategoryViewHolder(adapterLayout)
     }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = item.name
     }
