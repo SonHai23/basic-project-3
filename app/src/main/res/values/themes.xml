@@ -12,8 +12,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
-        <item name="android:statusBarColor">@color/silver</item>
+        <item name="android:statusBarColor">@color/electromagnetic</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/clouds</item>
+    </style>
+
+    <style name="NavbarBackground" parent="Widget.Design.BottomNavigationView">
+        <item name="colorPrimary">@color/white</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
@@ -21,7 +26,7 @@
     </style>
 
     <style name="ProFilePictureBackground">
-        <item name="android:background">@color/clouds</item>
+        <item name="android:background">@color/silver</item>
     </style>
 
     <style name="NormalTextView" parent="DefaultTextColor">

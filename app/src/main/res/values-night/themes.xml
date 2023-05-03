@@ -2,17 +2,23 @@
     <!-- Base application theme. -->
     <style name="Theme.BasicProject3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/pink</item>
 <!--        <item name="android:windowNoTitle">true</item>-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/background_dark_mode</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/background_dark_mode</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/pink</item>
+
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_dark_mode</item>
+    </style>
+
+    <style name="NavbarBackground" parent="Widget.Design.BottomNavigationView">
+        <item name="colorPrimary">@color/primary</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">

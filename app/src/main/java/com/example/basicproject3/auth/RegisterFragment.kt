@@ -1,6 +1,5 @@
 package com.example.basicproject3.auth
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableStringBuilder
@@ -33,7 +32,7 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         auth = FirebaseAuth.getInstance()
         val db: FirebaseFirestore = Firebase.firestore
@@ -67,7 +66,7 @@ class RegisterFragment : Fragment() {
                                 }
                                 .addOnFailureListener { e ->
                                     Log.w(
-                                        TAG,
+                                        "TAG",
                                         "Error writing document",
                                         e
                                     )

@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#57606F"
     tools:context=".MainActivity">
 
-    <!--<androidx.fragment.app.FragmentContainerView
-        android:id="@+id/layoutLoginFragment"
-        android:name="com.example.basicproject3.auth.LoginFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
-        android:layout_marginVertical="@dimen/fragment_vertical_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_login" />-->
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/layoutLoginFragment"-->
+<!--        android:name="com.example.basicproject3.auth.LoginFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"-->
+<!--        android:layout_marginVertical="@dimen/fragment_vertical_margin"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:layout="@layout/fragment_login" />-->
 
     <ImageView
         android:id="@+id/imgSplashActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/eventify__2_"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_e"
+        android:contentDescription="@string/app_name" />
 
 </LinearLayout>
