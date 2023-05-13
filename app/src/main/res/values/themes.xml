@@ -12,7 +12,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
-        <item name="android:statusBarColor">@color/electromagnetic</item>
+        <item name="android:statusBarColor">@color/white</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/clouds</item>
     </style>
@@ -42,7 +42,7 @@
         <item name="drawableEndCompat">@drawable/ic_chevron_light</item>
     </style>
 
-    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="SplashScreen" parent="Theme.BasicProject3">
         <!-- Override window background drawable -->
         <item name="android:windowBackground">@drawable/splash_light</item>
     </style>
