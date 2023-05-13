@@ -61,5 +61,4 @@
             android:id="@+id/navigate_change_profile_fragment_to_user_fragment"
             app:destination="@id/navigation_user"/>
     </fragment>
-
 </navigation>

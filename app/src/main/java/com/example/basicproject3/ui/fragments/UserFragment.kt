@@ -10,14 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.basicproject3.MyEventActivity
 import com.example.basicproject3.HomeActivity
 import com.example.basicproject3.R
 import com.example.basicproject3.databinding.FragmentUserBinding
 import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 
@@ -102,6 +100,12 @@ class UserFragment : Fragment() {
             val intent = Intent(activity, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        binding.txtMyEvent.setOnClickListener {
+            val intent = Intent(activity, MyEventActivity::class.java)
+            startActivity(intent)
+        }
+
         return root
     }
 
