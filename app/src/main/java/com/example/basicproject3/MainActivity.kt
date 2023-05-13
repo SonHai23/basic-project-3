@@ -3,7 +3,6 @@ package com.example.basicproject3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import com.example.basicproject3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,17 +14,16 @@ class MainActivity : AppCompatActivity() {
 
 //        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
-        /*val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)*/
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
 
-        Handler().postDelayed({
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, 1000)
+//        Handler().postDelayed({
+//            val intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }, 1000)
 
         /*val email = findViewById<EditText>(R.id.etSignInEmail)
         val password = findViewById<EditText>(R.id.etSignInPassword)

@@ -41,4 +41,10 @@
     <style name="TextWithChevron" parent="DefaultTextColor">
         <item name="drawableEndCompat">@drawable/ic_chevron_light</item>
     </style>
+
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Override window background drawable -->
+        <item name="android:windowBackground">@drawable/splash_light</item>
+    </style>
+
 </resources>
