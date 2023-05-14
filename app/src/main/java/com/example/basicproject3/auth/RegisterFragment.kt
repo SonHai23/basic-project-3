@@ -24,22 +24,22 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+
+        handleSignUpButtonClick()
+        handleSignInLinkClick()
+
+        return binding.root
+    }
+
+    private fun handleSignUpButtonClick() {
         auth = FirebaseAuth.getInstance()
         val db: FirebaseFirestore = Firebase.firestore
-
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        val rootView = binding.root
-
         binding.btnSignUp.setOnClickListener {
             val name = binding.etSignUpUsername.text.toString().trim()
             val email = binding.etSignUpEmail.text.toString().trim()
@@ -86,24 +86,22 @@ class RegisterFragment : Fragment() {
                 Toast.makeText(activity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             }
         }
-
-        handleSignUpLinkClick()
-
-        return rootView
     }
 
-    private fun handleSignUpLinkClick() {
+    private fun handleSignInLinkClick() {
         // Handle when click Sign up
         val text = "Don't have an account? Sign in"
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 val intent = Intent(activity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
                 ds.isUnderlineText = true
+                ds.color = ds.linkColor
             }
         }
         val startIndex = text.indexOf("Sign in")

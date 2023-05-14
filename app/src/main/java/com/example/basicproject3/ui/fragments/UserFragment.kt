@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.basicproject3.MyEventActivity
@@ -105,7 +106,10 @@ class UserFragment : Fragment() {
             val intent = Intent(activity, MyEventActivity::class.java)
             startActivity(intent)
         }
-
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            // Handle the back button event to back to home fragment
+            findNavController().navigate(R.id.action_navigation_user_to_navigation_home)
+        }
         return root
     }
 

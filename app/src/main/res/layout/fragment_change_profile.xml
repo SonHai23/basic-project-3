@@ -22,26 +22,22 @@
 
     <TextView
         android:id="@+id/txtChangeYourName"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
         android:paddingVertical="5dp"
         android:text="@string/change_your_name"
         app:drawableEndCompat="@drawable/chevron_black_resize" />
 
     <TextView
         android:id="@+id/txtChangePassword"
-        style="@style/NormalTextView"
+        style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
         android:paddingVertical="5dp"
         android:text="@string/change_password"
         app:drawableEndCompat="@drawable/chevron_black_resize" />

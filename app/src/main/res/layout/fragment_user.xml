@@ -9,53 +9,34 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.UserFragment">
 
-    <LinearLayout
-        style="@style/ProFilePictureBackground"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingVertical="25dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/avatar_profile_default"
-            app:civ_border_color="@color/clouds"
-            app:civ_border_width="1dp" />
-
-        <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="3dp"
-            android:gravity="center"
-            android:textSize="@dimen/text_size_large" />
-
-        <TextView
-            android:id="@+id/txtUserEmail"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textSize="@dimen/text_size_small" />
-    </LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/avatar_profile_default"
+        app:civ_border_color="@color/primary"
+        app:civ_border_width="0.5dp" />
 
     <TextView
-        android:id="@+id/txtNotifications"
-        style="@style/TextWithChevron"
-        android:layout_width="match_parent"
+        android:id="@+id/txtUsername"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
-        android:paddingVertical="5dp"
-        android:text="@string/notifications" />
+        android:layout_marginBottom="3dp"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_large" />
+
+    <TextView
+        android:id="@+id/txtUserEmail"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_small" />
 
     <!--<View
         android:id="@+id/line_1"
@@ -66,15 +47,31 @@
         android:layout_gravity="center_vertical"
         android:background="@color/primary" />-->
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="@dimen/fragment_horizontal_margin"
+        android:layout_marginVertical="@dimen/title_vertical_margin"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/txtNotifications"
+        style="@style/TextWithChevron"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:paddingVertical="5dp"
+        android:text="@string/notifications" />
+
     <TextView
         android:id="@+id/txtAccountSetting"
         style="@style/TextWithChevron"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
         android:paddingVertical="5dp"
         android:text="@string/account_setting" />
 
@@ -93,9 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
         android:paddingVertical="5dp"
         android:text="@string/my_event" />
 
@@ -110,13 +105,11 @@
 
     <TextView
         android:id="@+id/txtSignOut"
-        style="@style/TextWithChevron"
+        style="@style/SignOutText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="17dp"
-        android:drawablePadding="10dp"
-        android:paddingHorizontal="40dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
         android:paddingVertical="5dp"
         android:text="@string/sign_out" />
 

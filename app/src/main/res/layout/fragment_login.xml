@@ -67,7 +67,7 @@
         android:layout_gravity="end"
         android:layout_marginEnd="15dp"
         android:text="@string/forgot_password"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size_small" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -168,7 +168,6 @@
         android:id="@+id/txtSignUpLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up_link"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size_small" />
 
 </LinearLayout>

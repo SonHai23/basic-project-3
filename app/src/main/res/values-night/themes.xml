@@ -35,6 +35,7 @@
 
     <style name="NormalTextView" parent="DefaultTextColor">
         <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:paddingHorizontal">@dimen/item_padding</item>
     </style>
 
     <style name="PageTitle" parent="DefaultTextColor">
@@ -42,8 +43,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextWithChevron" parent="DefaultTextColor">
+    <style name="TextWithChevron" parent="NormalTextView">
         <item name="drawableEndCompat">@drawable/ic_chevron_dark</item>
+    </style>
+
+    <style name="SignOutText" parent="NormalTextView">
+        <item name="android:textColor">@android:color/holo_red_light</item>
     </style>
 
     <style name="SplashScreen" parent="Theme.BasicProject3">

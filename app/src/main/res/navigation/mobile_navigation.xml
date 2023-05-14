@@ -41,16 +41,22 @@
             <action
                 android:id="@+id/navigate_to_user_fragment"
                 app:destination="@id/navigation_user" />
+            <action
+                android:id="@+id/action_navigation_guest_to_navigation_home"
+                app:destination="@id/navigation_home" />
         </fragment>
         <fragment
             android:id="@+id/navigation_user"
             android:name="com.example.basicproject3.ui.fragments.UserFragment"
-            android:label="@string/title_user"
+            android:label="@string/title_profile"
             tools:layout="@layout/fragment_user">
 
             <action
                 android:id="@+id/navigate_to_change_profile_fragment"
                 app:destination="@id/change_profile" />
+            <action
+                android:id="@+id/action_navigation_user_to_navigation_home"
+                app:destination="@id/navigation_home" />
         </fragment>
         <fragment
             android:id="@+id/change_profile"

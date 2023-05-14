@@ -36,14 +36,20 @@ class LoginFragment : Fragment() {
 //        binding.lifecycleOwner = viewLifecycleOwner
 //        return binding.root
 
-        auth = FirebaseAuth.getInstance()
-
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        val rootView = binding.root
 
 //        binding.txtSignInPassword.setHintEnabled(false)
 
         // Set click listener for button
+
+        handleSignInButtonClick()
+        handleSignUpLinkClick()
+
+        return binding.root
+    }
+
+    private fun handleSignInButtonClick(){
+        auth = FirebaseAuth.getInstance()
         binding.btnSignIn.setOnClickListener {
             val email = binding.etSignInEmail.text.toString()
             val password = binding.etSignInPassword.text.toString()
@@ -62,18 +68,22 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
+    private fun handleSignUpLinkClick() {
         // Handle when click Sign up
         val text = "Don't have an account? Sign up"
         val ssb = SpannableStringBuilder(text)
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 val intent = Intent(activity, RegisterActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }
 
             override fun updateDrawState(ds: TextPaint) {
                 ds.isUnderlineText = true
+                ds.color = ds.linkColor
             }
         }
         val startIndex = text.indexOf("Sign up")
@@ -82,8 +92,6 @@ class LoginFragment : Fragment() {
 
         binding.txtSignUpLink.text = ssb
         binding.txtSignUpLink.movementMethod = LinkMovementMethod.getInstance()
-
-        return rootView
     }
 
     /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
