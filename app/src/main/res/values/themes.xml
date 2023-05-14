@@ -12,13 +12,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/clouds</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/clouds</item>
     </style>
 
     <style name="ViewsBackground">
         <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="SearchBar">
+        <item name="android:background">@drawable/custom_rectangle_light</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">

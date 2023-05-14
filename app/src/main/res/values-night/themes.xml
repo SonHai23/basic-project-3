@@ -11,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/background_dark_mode</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:statusBarColor">@color/background_dark_mode</item>
 
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/background_dark_mode</item>
@@ -19,6 +19,10 @@
 
     <style name="ViewsBackground">
         <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="SearchBar">
+        <item name="android:background">@drawable/custom_rectangle_dark</item>
     </style>
 
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
