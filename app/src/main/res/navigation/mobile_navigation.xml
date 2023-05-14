@@ -29,36 +29,38 @@
         android:label="@string/title_favourite"
         tools:layout="@layout/fragment_favourite" />
 
-    <fragment
+    <navigation
         android:id="@+id/navigation_profile"
-        android:name="com.example.basicproject3.ui.fragments.GuestFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_guest" >
+        app:startDestination="@id/navigation_guest">
+        <fragment
+            android:id="@+id/navigation_guest"
+            android:name="com.example.basicproject3.ui.fragments.GuestFragment"
+            android:label="@string/title_profile"
+            tools:layout="@layout/fragment_guest">
 
-        <action
-            android:id="@+id/navigate_to_user_fragment"
-            app:destination="@id/navigation_user"/>
-    </fragment>
+            <action
+                android:id="@+id/navigate_to_user_fragment"
+                app:destination="@id/navigation_user" />
+        </fragment>
+        <fragment
+            android:id="@+id/navigation_user"
+            android:name="com.example.basicproject3.ui.fragments.UserFragment"
+            android:label="@string/title_user"
+            tools:layout="@layout/fragment_user">
 
-    <fragment
-        android:id="@+id/navigation_user"
-        android:name="com.example.basicproject3.ui.fragments.UserFragment"
-        android:label="@string/title_user"
-        tools:layout="@layout/fragment_user">
+            <action
+                android:id="@+id/navigate_to_change_profile_fragment"
+                app:destination="@id/change_profile" />
+        </fragment>
+        <fragment
+            android:id="@+id/change_profile"
+            android:name="com.example.basicproject3.ui.fragments.ChangeProfileFragment"
+            android:label="@string/title_change_profile"
+            tools:layout="@layout/fragment_change_profile">
 
-        <action
-            android:id="@+id/navigate_to_change_profile_fragment"
-            app:destination="@id/change_profile"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/change_profile"
-        android:name="com.example.basicproject3.ui.fragments.ChangeProfileFragment"
-        android:label="@string/title_change_profile"
-        tools:layout="@layout/fragment_change_profile">
-
-        <action
-            android:id="@+id/navigate_change_profile_fragment_to_user_fragment"
-            app:destination="@id/navigation_user"/>
-    </fragment>
+            <action
+                android:id="@+id/navigate_change_profile_fragment_to_user_fragment"
+                app:destination="@id/navigation_user" />
+        </fragment>
+    </navigation>
 </navigation>
