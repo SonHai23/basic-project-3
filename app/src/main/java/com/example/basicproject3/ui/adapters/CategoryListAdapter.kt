@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basicproject3.R
 import com.example.basicproject3.data.model.Category
@@ -26,6 +28,10 @@ class CategoryListAdapter(
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = item.name
+        holder.itemView.setOnClickListener {
+            val bundle = bundleOf("categoryName" to item.name)
+            it.findNavController().navigate(R.id.action_navigation_search_to_events_by_category, bundle)
+        }
     }
 
     override fun getItemCount() = dataset.size

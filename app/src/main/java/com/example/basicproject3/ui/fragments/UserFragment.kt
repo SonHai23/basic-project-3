@@ -37,7 +37,6 @@ class UserFragment : Fragment() {
         val userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         _binding = FragmentUserBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         val txtUserProfile: TextView = binding.txtUsername
         userViewModel.profileInformation.observe(viewLifecycleOwner) {
@@ -110,7 +109,7 @@ class UserFragment : Fragment() {
             // Handle the back button event to back to home fragment
             findNavController().navigate(R.id.action_navigation_user_to_navigation_home)
         }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

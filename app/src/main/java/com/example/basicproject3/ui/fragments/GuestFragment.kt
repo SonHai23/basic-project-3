@@ -27,7 +27,6 @@ class GuestFragment : Fragment() {
             ViewModelProvider(this).get(GuestViewModel::class.java)*/
 
         _binding = FragmentGuestBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         /*val textView: TextView = binding.textProfile
         homeViewModel.text.observe(viewLifecycleOwner) {
@@ -50,7 +49,7 @@ class GuestFragment : Fragment() {
             // Handle the back button event to back to home fragment
             findNavController().navigate(R.id.action_navigation_guest_to_navigation_home)
         }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

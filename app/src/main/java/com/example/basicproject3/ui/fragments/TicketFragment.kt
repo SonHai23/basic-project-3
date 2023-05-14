@@ -27,13 +27,12 @@ class TicketFragment : Fragment() {
             ViewModelProvider(this)[TicketViewModel::class.java]
 
         _binding = FragmentTicketBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
         ticketViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

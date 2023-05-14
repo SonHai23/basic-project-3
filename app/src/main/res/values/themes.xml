@@ -37,7 +37,12 @@
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:paddingHorizontal">@dimen/item_padding</item>
     </style>
-    
+
+    <style name="CategoryTextView" parent="DefaultTextColor">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:padding">@dimen/item_padding</item>
+    </style>
+
     <style name="PageTitle" parent="DefaultTextColor">
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
@@ -54,6 +59,10 @@
     <style name="SplashScreen" parent="Theme.BasicProject3">
         <!-- Override window background drawable -->
         <item name="android:windowBackground">@drawable/splash_light</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">@color/primary</item>
     </style>
 
 </resources>

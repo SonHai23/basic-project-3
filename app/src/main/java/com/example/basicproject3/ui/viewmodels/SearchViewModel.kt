@@ -12,9 +12,10 @@ class SearchViewModel : ViewModel() {
 
     suspend fun getCategoryList(): MutableList<Category> {
         val categoryList = mutableListOf<Category>()
-        val querySnapshot = db.collection("categories").get().await()
+        val querySnapshot =
+            db.collection("categories").get().await()
         for (document in querySnapshot) {
-            val category = Category(document.id, document.data["name"] as String)
+            val category = Category(document.id)
             categoryList.add(category)
         }
         return categoryList

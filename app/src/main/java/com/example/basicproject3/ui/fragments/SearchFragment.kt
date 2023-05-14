@@ -30,20 +30,21 @@ class SearchFragment : Fragment() {
             ViewModelProvider(this)[SearchViewModel::class.java]
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        val searchPage = binding.searchPage
-        val searchBar = binding.searchBar
 
+
+        //load category list
         lifecycleScope.launch {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.progressBarCategory.visibility = View.VISIBLE
             val categoryList = searchViewModel.getCategoryList()
             val recyclerView = binding.recyclerViewCategories
             recyclerView.adapter = CategoryListAdapter(categoryList)
-            binding.progressBar.visibility = View.GONE
+            binding.progressBarCategory.visibility = View.GONE
         }
 
-        searchPage.setOnClickListener { searchBar.clearFocus() }
-        return root
+        //Clear focus from the search bar when clicked outside
+        binding.searchPage.setOnClickListener { binding.searchBar.clearFocus() }
+
+        return binding.root
     }
 
     override fun onDestroyView() {

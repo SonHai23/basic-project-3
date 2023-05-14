@@ -2,30 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/searchPage"
+    android:id="@+id/fragment_events_by_category"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.SearchFragment">
-
-    <SearchView
-        android:id="@+id/searchBar"
-        style="@style/SearchBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
-        android:layout_marginTop="@dimen/title_vertical_margin"
-        android:iconifiedByDefault="false"
-        android:queryBackground="@null" />
+    tools:context=".ui.fragments.EventsByCategoryFragment">
 
     <TextView
-        android:id="@+id/txtCategoriesTitle"
+        android:id="@+id/txtEventsTitle"
         style="@style/PageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/title_vertical_margin"
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
-        android:text="@string/title_categories" />
+        android:text="@string/title_events" />
 
     <LinearLayout
         style="@style/ViewsBackground"
@@ -34,14 +24,14 @@
         android:orientation="vertical">
 
         <ProgressBar
-            android:id="@+id/progressBarCategory"
+            android:id="@+id/progressBarEvent"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center|center_horizontal|center_vertical"
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewCategories"
+            android:id="@+id/recyclerViewEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"

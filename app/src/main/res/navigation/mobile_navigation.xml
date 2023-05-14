@@ -15,7 +15,11 @@
         android:id="@+id/navigation_search"
         android:name="com.example.basicproject3.ui.fragments.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_navigation_search_to_events_by_category"
+            app:destination="@id/events_by_category" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_ticket"
@@ -69,4 +73,16 @@
                 app:destination="@id/navigation_user" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/events_by_category"
+        android:name="com.example.basicproject3.ui.fragments.EventsByCategoryFragment"
+        android:label="fragment_event_by_category"
+        tools:layout="@layout/fragment_event_by_category">
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_events_by_category_to_navigation_search"
+            app:destination="@id/navigation_search" />
+    </fragment>
 </navigation>
