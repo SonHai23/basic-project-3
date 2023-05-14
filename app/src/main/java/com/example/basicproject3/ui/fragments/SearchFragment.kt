@@ -12,6 +12,7 @@ import com.example.basicproject3.ui.adapters.CategoryListAdapter
 import com.example.basicproject3.ui.viewmodels.SearchViewModel
 import kotlinx.coroutines.launch
 
+
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
@@ -30,6 +31,8 @@ class SearchFragment : Fragment() {
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val searchPage = binding.searchPage
+        val searchBar = binding.searchBar
 
         lifecycleScope.launch {
             binding.progressBar.visibility = View.VISIBLE
@@ -38,6 +41,8 @@ class SearchFragment : Fragment() {
             recyclerView.adapter = CategoryListAdapter(categoryList)
             binding.progressBar.visibility = View.GONE
         }
+
+        searchPage.setOnClickListener { searchBar.clearFocus() }
         return root
     }
 
