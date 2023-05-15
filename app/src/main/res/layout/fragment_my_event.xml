@@ -8,14 +8,12 @@
 
     <TextView
         android:id="@+id/txtMyEvent"
+        style="@style/PageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/my_event"
-        android:textSize="@dimen/title_size"/>
-
+        android:layout_margin="@dimen/title_vertical_margin"
+        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
+        android:text="@string/my_event"/>
 
     <Button
         android:id="@+id/btnCreateEvent"

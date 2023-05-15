@@ -12,6 +12,9 @@
         android:theme="@style/Theme.BasicProject3"
         tools:targetApi="s">
         <activity
+            android:name=".CreateEventActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyEventActivity"
             android:exported="false" />
         <activity
