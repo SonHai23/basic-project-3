@@ -9,8 +9,11 @@
 
     <TextView
         android:id="@+id/txtOrganizersToFollow"
-        android:layout_width="match_parent"
+        style="@style/PageTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/title_vertical_margin"
+        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
         android:text="@string/organizers_to_follow"/>
 
     <com.google.android.material.tabs.TabLayout
