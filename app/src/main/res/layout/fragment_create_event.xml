@@ -140,18 +140,6 @@
             android:backgroundTint="@color/city_lights"/>
     </LinearLayout>
 
-    <!--<EditText
-        android:id="@+id/etEndDate"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:background="@drawable/social_btn_background"
-        android:paddingHorizontal="20dp"
-        android:maxLines="1"
-        android:inputType="text"
-        android:hint="Choose end date"
-        android:layout_marginVertical="10dp"
-        android:backgroundTint="@color/city_lights"/>-->
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgEventDescription"
         android:layout_width="300dp"
