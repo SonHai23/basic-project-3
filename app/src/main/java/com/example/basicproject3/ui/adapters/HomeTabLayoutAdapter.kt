@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 //import com.bumptech.glide.manager.Lifecycle
 import androidx.lifecycle.Lifecycle
 import com.example.basicproject3.ui.fragments.PopularEventFragment
-import com.example.basicproject3.ui.fragments.RecentlyEventFragment
+import com.example.basicproject3.ui.fragments.HappeningEventFragment
 
 class HomeTabLayoutAdapter(
     fragmentManager: FragmentManager,
@@ -20,7 +20,7 @@ class HomeTabLayoutAdapter(
          return if (position == 0) {
             PopularEventFragment()
         } else {
-            RecentlyEventFragment()
+            HappeningEventFragment()
         }
     }
 

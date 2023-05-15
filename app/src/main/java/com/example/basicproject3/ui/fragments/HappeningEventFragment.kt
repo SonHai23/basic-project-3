@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.basicproject3.R
-import com.example.basicproject3.databinding.FragmentPopularEventBinding
 import com.example.basicproject3.databinding.FragmentRecentlyEventBinding
 
-class RecentlyEventFragment : Fragment() {
+class HappeningEventFragment : Fragment() {
     private var _binding: FragmentRecentlyEventBinding? = null
     private val binding get() = _binding!!
 
