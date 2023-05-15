@@ -70,4 +70,10 @@
         <item name="cornerSize">8dp</item>
     </style>
 
+    <!--Tat in hoa khi su dung TabLayout-->
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
 </resources>

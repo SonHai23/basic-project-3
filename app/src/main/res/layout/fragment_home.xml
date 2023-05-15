@@ -13,18 +13,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/title_vertical_margin"
-        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
         android:text="@string/organizers_to_follow"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOrganizersToFollow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/title_vertical_margin"
+        android:layout_marginBottom="@dimen/title_vertical_margin"
+        android:layout_below="@id/txtOrganizersToFollow" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        app:tabMode="fixed"
-        app:tabIndicatorGravity="stretch"
+        app:tabMode="scrollable"
+        app:tabIndicatorGravity="bottom"
         app:tabIndicatorAnimationMode="elastic"
-        android:layout_below="@id/txtOrganizersToFollow"
-        app:tabIndicatorColor="@null" />
+        app:tabTextAppearance="@style/MyCustomTextAppearance"
+        android:layout_below="@id/rvOrganizersToFollow" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
