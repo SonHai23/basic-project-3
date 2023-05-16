@@ -14,7 +14,6 @@ class User() {
     private val storage = FirebaseStorage.getInstance()
     private val uid = auth.currentUser?.uid
 
-
     fun getUsername(): Task<DocumentSnapshot> {
         val db = Firebase.firestore
 //        val uid = auth.currentUser?.uid

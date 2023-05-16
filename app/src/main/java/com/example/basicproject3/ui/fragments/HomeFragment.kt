@@ -1,10 +1,12 @@
 package com.example.basicproject3.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.basicproject3.R
 import com.example.basicproject3.data.model.OrganizersToFollow
 import com.example.basicproject3.data.model.PopularEvents
@@ -20,9 +23,15 @@ import com.example.basicproject3.databinding.FragmentHomeBinding
 import com.example.basicproject3.ui.adapters.HomeTabLayoutAdapter
 import com.example.basicproject3.ui.adapters.OrganizersToFollowAdapter
 import com.example.basicproject3.ui.adapters.PopularEventsAdapter
+import com.example.basicproject3.ui.viewmodels.HomeViewModel
 import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -38,9 +47,10 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
-    private lateinit var adapter: HomeTabLayoutAdapter
+    private lateinit var tabAdapter: HomeTabLayoutAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var organizerList: ArrayList<OrganizersToFollow>
+    private lateinit var oAdapter: OrganizersToFollowAdapter
     private var data = Firebase.firestore
     lateinit var imageID: Array<Int>
     lateinit var heading: Array<String>
@@ -51,7 +61,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+//        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         //ask for close app if press back button in home fragment, if in the next 5s, user pressed back button the second time, close app
@@ -62,11 +72,11 @@ class HomeFragment : Fragment() {
         tabLayout = binding.tabLayout
         viewPager2 = binding.viewPager2
 
-        adapter = HomeTabLayoutAdapter(requireActivity().supportFragmentManager, lifecycle)
+        tabAdapter = HomeTabLayoutAdapter(requireActivity().supportFragmentManager, lifecycle)
         tabLayout.addTab(tabLayout.newTab().setText("Popular"))
         tabLayout.addTab(tabLayout.newTab().setText("Happening"))
 
-        viewPager2.adapter = adapter
+        viewPager2.adapter = tabAdapter
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -99,6 +109,15 @@ class HomeFragment : Fragment() {
             R.drawable.edm5,
         )*/
 
+        /*val imgItem1 = homeViewModel.organizerAvatar.observe(viewLifecycleOwner) {
+            // Su dung Glide de load image
+            if (it != null) {
+                Glide.with(binding.fragmentHome).load(it).into(R.id.imgOrganizerAvatar)
+            } else {
+                R.id.imgOrganizerAvatar.setImageResource(R.drawable.avatar_profile_default)
+            }
+        }*/
+
         /*heading = arrayOf(
             "Edm",
             "Edm",
@@ -107,13 +126,15 @@ class HomeFragment : Fragment() {
             "Edm",
         )*/
 
-        organizerList = arrayListOf()
 
         recyclerView = binding.rvOrganizersToFollow
         recyclerView.layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true) //
 
-//        organizersList = arrayListOf<OrganizersToFollow>()
+        organizerList = arrayListOf()
+       /* oAdapter = OrganizersToFollowAdapter(organizerList)
+        recyclerView.adapter = oAdapter*/
+
         getOrganizersToFollow()
 
         return binding.root
@@ -134,11 +155,32 @@ class HomeFragment : Fragment() {
                         val organizer: OrganizersToFollow? = data.toObject(OrganizersToFollow::class.java)
                         if (organizer != null) {
                             organizerList.add(organizer)
+                            Toast.makeText(activity, "$organizer", Toast.LENGTH_SHORT).show()
                         }
                     }
                     recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
                 }
             }
+            .addOnFailureListener() {
+                Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+        /*data.collection("users").orderBy("name", Query.Direction.ASCENDING)
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                    if (error != null) {
+                        Log.e("Firestore Error", error.message.toString())
+                    }
+                    for (dc: DocumentChange in value?.documentChanges!!) {
+                        if (dc.type == DocumentChange.Type.ADDED) {
+                            organizerList.add(dc.document.toObject(OrganizersToFollow::class.java))
+                        }
+                    }
+
+                    oAdapter.notifyDataSetChanged()
+                }
+            })*/
+
 //        recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
     }
 

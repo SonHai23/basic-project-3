@@ -11,15 +11,16 @@ import com.google.android.material.imageview.ShapeableImageView
 import de.hdodenhof.circleimageview.CircleImageView
 
 class OrganizersToFollowAdapter(private val organizers: ArrayList<OrganizersToFollow>) : RecyclerView.Adapter<OrganizersToFollowAdapter.OrganizerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizersToFollowAdapter.OrganizerViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item_organizer, parent, false)
         return OrganizerViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: OrganizerViewHolder, position: Int) {
-        val currentItem = organizers[position]
+    override fun onBindViewHolder(holder: OrganizersToFollowAdapter.OrganizerViewHolder, position: Int) {
+//        val currentItem = organizers[position]
+        val currentItem : OrganizersToFollow = organizers[position]
 //        holder.organizerAvatar.setImageResource(currentItem.organizerAvatar)
-        holder.organizerDescription.text = currentItem.organizerDescription
+        holder.organizerDescription.text = currentItem.name
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +28,7 @@ class OrganizersToFollowAdapter(private val organizers: ArrayList<OrganizersToFo
     }
 
     class OrganizerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val organizerAvatar : CircleImageView = itemView.findViewById(R.id.imgOrganizerAvatar)
+//        val organizerAvatar : CircleImageView = itemView.findViewById(R.id.imgOrganizerAvatar)
         val organizerDescription : TextView = itemView.findViewById(R.id.txtOrganizerName)
     }
 }

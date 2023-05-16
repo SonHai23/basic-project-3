@@ -38,7 +38,6 @@ class UserFragment : Fragment() {
         lifecycleScope.launch {
             userViewModel.profileAvatar.observe(viewLifecycleOwner) {
                 // Su dung Glide de load image
-
                 if (it != null) {
                     Glide.with(binding.fragmentUser).load(it).into(binding.imgAvatar)
                 } else {

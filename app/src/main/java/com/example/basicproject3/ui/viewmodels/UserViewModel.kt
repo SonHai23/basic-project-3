@@ -8,7 +8,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Source
 
 class UserViewModel : ViewModel() {
-
     private var auth: FirebaseAuth
     private val user = User()
 
