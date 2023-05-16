@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/title_vertical_margin"
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
-        android:text="@string/my_event"/>
+        android:text="@string/my_events"/>
 
     <Button
         android:id="@+id/btnCreateEvent"

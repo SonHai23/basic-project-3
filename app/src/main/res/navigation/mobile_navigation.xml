@@ -77,10 +77,10 @@
         <fragment
             android:id="@+id/events_by_category"
             android:name="com.example.basicproject3.ui.fragments.EventsByCategoryFragment"
-            android:label="@string/title_events"
+            android:label="@string/title_events_in_category"
             tools:layout="@layout/fragment_event_by_category">
             <argument
-                android:name="categoryName"
+                android:name="category"
                 app:argType="string" />
             <action
                 android:id="@+id/action_events_by_category_to_navigation_search"

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/title_vertical_margin"
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
-        android:text="@string/title_events" />
+        android:text="@string/title_events_in_category" />
 
     <LinearLayout
         android:id="@+id/eventList"

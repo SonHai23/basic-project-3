@@ -30,18 +30,22 @@ class EventsByCategoryFragment : Fragment() {
         //load Event list
         lifecycleScope.launch {
             binding.progressBarEvent.visibility = View.VISIBLE
-            val categoryName = arguments?.getString("categoryName").toString()
-            val eventList = eventsByCategoryViewModel.getEventList(categoryName)
+
+            //set title
+            val category = arguments?.getString("category").toString()
+            var title = binding.txtEventsTitle.text
+            title = "$title $category"
+            binding.txtEventsTitle.text = title
+
+            //set event list using adapter
+            val eventList = eventsByCategoryViewModel.getEventList(category)
             val recyclerView = binding.recyclerViewEvents
-            recyclerView.adapter = EventListAdapter(eventList)
+            recyclerView.adapter = activity?.let { EventListAdapter(it, category, eventList) }
+
             binding.progressBarEvent.visibility = View.GONE
         }
 
-        return binding.root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return binding.root
     }
 }

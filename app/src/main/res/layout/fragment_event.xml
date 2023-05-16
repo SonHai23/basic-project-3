@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ViewsBackground"
+    tools:context=".ui.fragments.EventFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBarEventPage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:visibility="gone" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgEvent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gallery_icon_tr_2_1200x1200"
+            app:shapeAppearanceOverlay="@style/RoundedCorner" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventTitle"
+            style="@style/PageTitleBig"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/txtTitleDescription"
+            style="@style/PageTitle"
+            android:text="@string/title_description" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventDescription"
+            style="@style/NormalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtTitleEventLocation"
+            style="@style/PageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_location" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventLocation"
+            style="@style/NormalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

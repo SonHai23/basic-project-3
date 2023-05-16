@@ -1,20 +1,16 @@
 package com.example.basicproject3.data.model
 
-import java.util.Date
+import com.google.firebase.Timestamp
 
 data class Event(
-    val id: String,
-    val host: String,
-    val title: String
-//    val description: String,
-//    val address: String,
-//    val city: String,
-//    val phone: String,
-//    val images: List<*>,
-//    val category: String,
-//    val age_of_restrict: Int,
-//    val ticket_price: Int,
-//    val ticket_quantity: Int,
-//    val date_start: Date,
-//    val date_end: Date
+    val id: String? = null,
+    val host: String? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val location: String? = null,
+    val age_of_restrict: String? = null,
+    val ticket_price: String? = null,
+    val date_created: Timestamp? = null,
+    val date_start: Timestamp? = null,
+    val date_end: Timestamp? = null
 )

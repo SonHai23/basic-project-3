@@ -35,12 +35,23 @@
 
     <style name="NormalTextView" parent="DefaultTextColor">
         <item name="android:textSize">@dimen/text_size</item>
-        <item name="android:paddingHorizontal">@dimen/item_padding</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">@dimen/title_horizontal_margin</item>
+        <item name="android:layout_marginVertical">@dimen/text_vertical_margin</item>
     </style>
 
     <style name="PageTitle" parent="DefaultTextColor">
         <item name="android:textSize">@dimen/title_size</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">@dimen/title_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/title_vertical_margin</item>
+    </style>
+
+    <style name="PageTitleBig" parent="PageTitle">
+        <item name="android:textSize">@dimen/title_size_big</item>
     </style>
 
     <style name="CategoryTextView" parent="DefaultTextColor">
@@ -62,9 +73,10 @@
     </style>
 
     <style name="Divider">
+        <item name="android:background">@color/clouds</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/clouds</item>
+        <item name="android:layout_marginHorizontal">@dimen/title_horizontal_margin</item>
     </style>
 
     <style name="RoundedCorner">
@@ -84,5 +96,9 @@
 
     <style name="LayoutColor">
         <item name="android:background">@drawable/custom_layout_dark</item>
+    </style>
+    <style name="ThemeOverlay.BasicProject3.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
     </style>
 </resources>

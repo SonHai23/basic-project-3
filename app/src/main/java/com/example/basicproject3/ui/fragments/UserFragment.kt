@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -26,18 +25,39 @@ class UserFragment : Fragment() {
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
 
+    companion object {
+        fun newInstance() = UserFragment()
+        const val AVATAR_KEY = "AVATAR_KEY"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(AVATAR_KEY, binding.imgAvatar.toString())
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
+
         val userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         _binding = FragmentUserBinding.inflate(inflater, container, false)
 
+        val cachedAvatar = savedInstanceState?.getString(AVATAR_KEY).toString()
+
+        userViewModel.profileAvatar.observe(viewLifecycleOwner) {
+            Glide.with(binding.fragmentUser).load(cachedAvatar)
+                .into(binding.imgAvatar)
+        }
+
         lifecycleScope.launch {
             userViewModel.profileAvatar.observe(viewLifecycleOwner) {
                 // Su dung Glide de load image
+                Glide.with(binding.fragmentUser).load(savedInstanceState?.getString("avatar"))
+                    .into(binding.imgAvatar)
                 if (it != null) {
                     Glide.with(binding.fragmentUser).load(it).into(binding.imgAvatar)
                 } else {
@@ -45,14 +65,12 @@ class UserFragment : Fragment() {
                 }
             }
 
-            val txtUserProfile: TextView = binding.txtUsername
             userViewModel.profileInformation.observe(viewLifecycleOwner) {
-                txtUserProfile.text = it.name
+                binding.txtUsername.text = it.name
             }
 
-            val txtUserEmailProfile: TextView = binding.txtUserEmail
             userViewModel.profileInformation.observe(viewLifecycleOwner) {
-                txtUserEmailProfile.text = it.email
+                binding.txtUserEmail.text = it.email
             }
         }
         // Get data from firestore
@@ -113,9 +131,4 @@ class UserFragment : Fragment() {
         }
         return binding.root
     }
-
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
 }

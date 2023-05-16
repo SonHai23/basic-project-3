@@ -9,8 +9,9 @@
     <dimen name="title_horizontal_margin">32dp</dimen>
     <dimen name="title_vertical_margin">26dp</dimen>
 
-    <dimen name="item_horizontal_margin">64dp</dimen>
+    <dimen name="text_vertical_margin">16dp</dimen>
 
+    <dimen name="item_horizontal_margin">64dp</dimen>
     <dimen name="item_padding">32dp</dimen>
 
     <dimen name="user_setting_padding_horizontal">32dp</dimen>
@@ -18,5 +19,7 @@
     <dimen name="text_size">17sp</dimen>
     <dimen name="text_size_small">15sp</dimen>
     <dimen name="text_size_big">26sp</dimen>
+
     <dimen name="title_size">30sp</dimen>
+    <dimen name="title_size_big">40sp</dimen>
 </resources>

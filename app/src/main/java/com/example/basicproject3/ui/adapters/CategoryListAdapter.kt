@@ -26,10 +26,10 @@ class CategoryListAdapter(
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.textView.text = item.name
+        val category = dataset[position]
+        holder.textView.text = category.name
         holder.itemView.setOnClickListener {
-            val bundle = bundleOf("categoryName" to item.name)
+            val bundle = bundleOf("category" to category.name)
             it.findNavController().navigate(R.id.action_navigation_search_to_events_by_category, bundle)
         }
     }

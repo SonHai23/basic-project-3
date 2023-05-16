@@ -1,42 +1,24 @@
 package com.example.basicproject3.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.bumptech.glide.Glide
-import com.example.basicproject3.R
 import com.example.basicproject3.data.model.OrganizersToFollow
-import com.example.basicproject3.data.model.PopularEvents
-import com.example.basicproject3.data.model.User
 import com.example.basicproject3.databinding.FragmentHomeBinding
 import com.example.basicproject3.ui.adapters.HomeTabLayoutAdapter
 import com.example.basicproject3.ui.adapters.OrganizersToFollowAdapter
-import com.example.basicproject3.ui.adapters.PopularEventsAdapter
-import com.example.basicproject3.ui.viewmodels.HomeViewModel
-import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment() {
 
@@ -80,9 +62,7 @@ class HomeFragment : Fragment() {
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                if (tab != null) {
-                    viewPager2.currentItem = tab!!.position
-                }
+                viewPager2.currentItem = tab!!.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -102,7 +82,8 @@ class HomeFragment : Fragment() {
         })
 
         recyclerView = binding.rvOrganizersToFollow
-        recyclerView.layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true) //
 
         organizerList = arrayListOf()
@@ -127,7 +108,8 @@ class HomeFragment : Fragment() {
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
-                        val organizer: OrganizersToFollow? = data.toObject(OrganizersToFollow::class.java)
+                        val organizer: OrganizersToFollow? =
+                            data.toObject(OrganizersToFollow::class.java)
                         if (organizer != null) {
                             val imagePath = "profiles/${data.id}"
                             val imageRef = storage.getReference(imagePath)

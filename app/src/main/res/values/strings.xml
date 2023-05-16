@@ -37,13 +37,13 @@
     <string name="title_change_profile">Change profile</string>
     <string name="title_my_event">My Event</string>
     <string name="notifications">Notifications</string>
-    <string name="my_event">My event</string>
+    <string name="my_events">My events</string>
     <string name="account_setting">Account setting</string>
     <string name="save_changes">Save changes</string>
     <string name="change_password">Change password</string>
     <string name="change_your_name">Change your name</string>
     <string name="title_categories">Categories</string>
-    <string name="title_events">Events</string>
+    <string name="title_events_in_category">Events in category</string>
     <string name="create_event">Create Event</string>
     <string name="organizers_to_follow">Organizers to follow</string>
     <string name="event_name">Event name</string>
@@ -52,4 +52,6 @@
     <string name="event_end_time">Event end time</string>
     <string name="create">Create</string>
     <string name="follow">Follow</string>
+    <string name="title_description">Description</string>
+    <string name="title_location">Location</string>
 </resources>
