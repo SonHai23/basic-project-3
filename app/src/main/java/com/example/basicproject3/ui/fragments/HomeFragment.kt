@@ -101,32 +101,6 @@ class HomeFragment : Fragment() {
             }
         })
 
-        /*imageID = arrayOf(
-            R.drawable.edm1,
-            R.drawable.edm2,
-            R.drawable.edm3,
-            R.drawable.edm4,
-            R.drawable.edm5,
-        )*/
-
-        /*val imgItem1 = homeViewModel.organizerAvatar.observe(viewLifecycleOwner) {
-            // Su dung Glide de load image
-            if (it != null) {
-                Glide.with(binding.fragmentHome).load(it).into(R.id.imgOrganizerAvatar)
-            } else {
-                R.id.imgOrganizerAvatar.setImageResource(R.drawable.avatar_profile_default)
-            }
-        }*/
-
-        /*heading = arrayOf(
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-        )*/
-
-
         recyclerView = binding.rvOrganizersToFollow
         recyclerView.layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true) //
@@ -147,6 +121,7 @@ class HomeFragment : Fragment() {
         }*/
 
         data = FirebaseFirestore.getInstance()
+        val storage = FirebaseStorage.getInstance()
 
         data.collection("users").get()
             .addOnSuccessListener {
@@ -154,32 +129,23 @@ class HomeFragment : Fragment() {
                     for (data in it.documents) {
                         val organizer: OrganizersToFollow? = data.toObject(OrganizersToFollow::class.java)
                         if (organizer != null) {
-                            organizerList.add(organizer)
-                            Toast.makeText(activity, "$organizer", Toast.LENGTH_SHORT).show()
+                            val imagePath = "profiles/${data.id}"
+                            val imageRef = storage.getReference(imagePath)
+                            imageRef.downloadUrl.addOnSuccessListener { uri ->
+                                organizer.profiles = uri.toString()
+                                organizerList.add(organizer)
+                                recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
+                            }
+//                            organizerList.add(organizer)
+//                            Toast.makeText(activity, "$organizer", Toast.LENGTH_SHORT).show()
                         }
                     }
-                    recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
+//                    recyclerView.adapter = OrganizersToFollowAdapter(organizerList) // Danh cho viec xu ly khi chua xu ly image tuwf storage
                 }
             }
             .addOnFailureListener() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }
-
-        /*data.collection("users").orderBy("name", Query.Direction.ASCENDING)
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if (error != null) {
-                        Log.e("Firestore Error", error.message.toString())
-                    }
-                    for (dc: DocumentChange in value?.documentChanges!!) {
-                        if (dc.type == DocumentChange.Type.ADDED) {
-                            organizerList.add(dc.document.toObject(OrganizersToFollow::class.java))
-                        }
-                    }
-
-                    oAdapter.notifyDataSetChanged()
-                }
-            })*/
 
 //        recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
     }
