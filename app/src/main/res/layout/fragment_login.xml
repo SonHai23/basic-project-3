@@ -125,17 +125,17 @@
                 android:contentDescription="@string/google"
                 app:srcCompat="@drawable/google" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/txtGoogleLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/google"
                 android:textSize="@dimen/text_size"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/layoutFacebook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                 android:text="@string/facebook"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 
     <TextView
