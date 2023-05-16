@@ -6,24 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.basicproject3.MyEventActivity
 import com.example.basicproject3.HomeActivity
 import com.example.basicproject3.R
 import com.example.basicproject3.databinding.FragmentUserBinding
 import com.example.basicproject3.ui.viewmodels.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 
 class UserFragment : Fragment() {
-    /*override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }*/
 
     private var _binding: FragmentUserBinding? = null
     private val binding get() = _binding!!
@@ -38,22 +35,27 @@ class UserFragment : Fragment() {
 
         _binding = FragmentUserBinding.inflate(inflater, container, false)
 
-        val txtUserProfile: TextView = binding.txtUsername
-        userViewModel.profileInformation.observe(viewLifecycleOwner) {
-            txtUserProfile.text = it.name
-        }
+        lifecycleScope.launch {
+            userViewModel.profileAvatar.observe(viewLifecycleOwner) {
+                // Su dung Glide de load image
 
-        val txtUserEmailProfile: TextView = binding.txtUserEmail
-        userViewModel.profileInformation.observe(viewLifecycleOwner) {
-            txtUserEmailProfile.text = it.email
-        }
+                if (it != null) {
+                    Glide.with(binding.fragmentUser).load(it).into(binding.imgAvatar)
+                } else {
+                    binding.imgAvatar.setImageResource(R.drawable.avatar_profile_default)
+                }
+            }
 
-        val imgUserAvatar: ImageView = binding.imgAvatar
-        userViewModel.profileAvatar.observe(viewLifecycleOwner) {
-            // Su dung Picasso de load image
-            Picasso.get().load(it).memoryPolicy(MemoryPolicy.NO_CACHE).placeholder(R.drawable.avatar_profile_default).into(imgUserAvatar)
-        }
+            val txtUserProfile: TextView = binding.txtUsername
+            userViewModel.profileInformation.observe(viewLifecycleOwner) {
+                txtUserProfile.text = it.name
+            }
 
+            val txtUserEmailProfile: TextView = binding.txtUserEmail
+            userViewModel.profileInformation.observe(viewLifecycleOwner) {
+                txtUserEmailProfile.text = it.email
+            }
+        }
         // Get data from firestore
         /*val data = Firebase.firestore
         val uid = auth.currentUser?.uid
@@ -105,6 +107,7 @@ class UserFragment : Fragment() {
             val intent = Intent(activity, MyEventActivity::class.java)
             startActivity(intent)
         }
+
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             // Handle the back button event to back to home fragment
             findNavController().navigate(R.id.action_navigation_user_to_navigation_home)
@@ -112,8 +115,8 @@ class UserFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        _binding = null
+//    }
 }

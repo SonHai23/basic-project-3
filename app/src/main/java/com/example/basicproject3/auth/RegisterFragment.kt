@@ -55,22 +55,7 @@ class RegisterFragment : Fragment() {
                                 "name" to name,
                             )
 
-                            db.collection("users").document(uid!!)
-                                .set(user)
-                                .addOnSuccessListener {
-                                    Log.d(
-                                        "TAG",
-                                        "DocumentSnapshot successfully written!"
-                                    )
-                                }
-                                .addOnFailureListener { e ->
-                                    Log.w(
-                                        "TAG",
-                                        "Error writing document",
-                                        e
-                                    )
-                                }
-
+                            db.collection("users").document(uid!!).set(user)
                             val intent = Intent(activity, LoginActivity::class.java)
                             startActivity(intent)
                         } else {
@@ -115,11 +100,4 @@ class RegisterFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    /*companion object {
-        fun newInstance(param1: String, param2: String) =
-            RegisterFragment().apply {
-
-            }
-    }*/
 }

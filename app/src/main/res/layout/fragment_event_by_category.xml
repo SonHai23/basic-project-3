@@ -18,6 +18,7 @@
         android:text="@string/title_events" />
 
     <LinearLayout
+        android:id="@+id/eventList"
         style="@style/ViewsBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
