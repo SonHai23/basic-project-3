@@ -10,21 +10,20 @@ import com.example.basicproject3.data.model.OrganizersToFollow
 import com.google.android.material.imageview.ShapeableImageView
 import de.hdodenhof.circleimageview.CircleImageView
 
-class OrganizersToFollowAdapter(private val items: ArrayList<OrganizersToFollow>) : RecyclerView.Adapter<OrganizersToFollowAdapter.OrganizerViewHolder>() {
-
+class OrganizersToFollowAdapter(private val organizers: ArrayList<OrganizersToFollow>) : RecyclerView.Adapter<OrganizersToFollowAdapter.OrganizerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizerViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_item_organizer, parent, false)
         return OrganizerViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: OrganizerViewHolder, position: Int) {
-        val currentItem = items[position]
-        holder.organizerAvatar.setImageResource(currentItem.organizerAvatar)
+        val currentItem = organizers[position]
+//        holder.organizerAvatar.setImageResource(currentItem.organizerAvatar)
         holder.organizerDescription.text = currentItem.organizerDescription
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return organizers.size
     }
 
     class OrganizerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

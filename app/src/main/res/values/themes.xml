@@ -76,4 +76,12 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
+    <style name="TabLayoutColor">
+        <item name="tabBackground">@color/clouds</item>
+    </style>
+
+    <style name="LayoutColor">
+        <item name="android:background">@drawable/custom_layout_light</item>
+    </style>
+
 </resources>

@@ -19,8 +19,9 @@
         android:id="@+id/rvOrganizersToFollow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/title_vertical_margin"
-        android:layout_marginBottom="@dimen/title_vertical_margin"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        tools:listitem="@layout/list_item_organizer"
         android:layout_below="@id/txtOrganizersToFollow" />
 
     <com.google.android.material.tabs.TabLayout
@@ -31,7 +32,7 @@
         app:tabIndicatorGravity="bottom"
         app:tabIndicatorAnimationMode="elastic"
         app:tabTextAppearance="@style/MyCustomTextAppearance"
-        app:tabBackground="@color/clouds"
+        style="@style/TabLayoutColor"
         android:layout_below="@id/rvOrganizersToFollow" />
 
     <androidx.viewpager2.widget.ViewPager2
