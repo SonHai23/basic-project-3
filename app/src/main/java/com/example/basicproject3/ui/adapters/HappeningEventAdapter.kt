@@ -12,7 +12,7 @@ import com.google.android.material.imageview.ShapeableImageView
 class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : RecyclerView.Adapter<HappeningEventAdapter.HappeningViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HappeningViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_event_happening, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)
         return HappeningViewHolder(itemView)
     }
 
@@ -27,7 +27,7 @@ class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : Recy
     }
 
     class HappeningViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgHappeningEvent)
-        val eventTitle : TextView = itemView.findViewById(R.id.txtHappeningEventTitle)
+        val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgEvent)
+        val eventTitle : TextView = itemView.findViewById(R.id.txtEventTitle)
     }
 }

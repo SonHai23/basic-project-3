@@ -1,6 +1,5 @@
 package com.example.basicproject3.ui.adapters
 
-import android.graphics.drawable.ShapeDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.google.android.material.imageview.ShapeableImageView
 class PopularEventsAdapter(private val items: ArrayList<PopularEvents>) : RecyclerView.Adapter<PopularEventsAdapter.PopularViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_event_popular, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)
         return PopularViewHolder(itemView)
     }
 

@@ -19,7 +19,7 @@ class EventListAdapter(
 ) : RecyclerView.Adapter<EventListAdapter.EventViewHolder>() {
 
     class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.event_title)
+        val textView: TextView = view.findViewById(R.id.txtEventTitle) //
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
