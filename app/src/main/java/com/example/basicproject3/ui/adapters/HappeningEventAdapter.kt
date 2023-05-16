@@ -18,8 +18,9 @@ class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : Recy
 
     override fun onBindViewHolder(holder: HappeningViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.imageEvent.setImageResource(currentItem.imageEvent)
-        holder.eventTitle.text = currentItem.eventTitle
+//        holder.imageEvent.setImageResource(currentItem.imageEvent)
+        holder.eventTitle.text = currentItem.title
+//        holder.dateStart.text = currentItem.title
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +28,8 @@ class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : Recy
     }
 
     class HappeningViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgEvent)
+//        val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgEvent)
         val eventTitle : TextView = itemView.findViewById(R.id.txtEventTitle)
+//        val dateStart : TextView = itemView.findViewById(R.id.txtEventTime)
     }
 }

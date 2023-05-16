@@ -82,8 +82,7 @@ class HomeFragment : Fragment() {
         })
 
         recyclerView = binding.rvOrganizersToFollow
-        recyclerView.layoutManager =
-            GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = GridLayoutManager(activity, 1, GridLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true) //
 
         organizerList = arrayListOf()
@@ -108,8 +107,7 @@ class HomeFragment : Fragment() {
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
-                        val organizer: OrganizersToFollow? =
-                            data.toObject(OrganizersToFollow::class.java)
+                        val organizer: OrganizersToFollow? = data.toObject(OrganizersToFollow::class.java)
                         if (organizer != null) {
                             val imagePath = "profiles/${data.id}"
                             val imageRef = storage.getReference(imagePath)

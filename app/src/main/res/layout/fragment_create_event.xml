@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".ui.fragments.CreateEventFragment">
 
     <!--<TimePicker
@@ -16,149 +14,200 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />-->
 
-    <TextView
-        android:id="@+id/txtEventName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginVertical="10dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/event_name" />
-
-    <EditText
-        android:id="@+id/etEventName"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:background="@drawable/edittext_background"
-        android:paddingHorizontal="20dp"
-        android:maxLines="1"
-        android:inputType="text"
-        android:hint="Enter event name"
-        android:layout_marginVertical="10dp"
-        android:backgroundTint="@color/city_lights"/>
-
-    <TextView
-        android:id="@+id/txtLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginVertical="10dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/location" />
-
-    <EditText
-        android:id="@+id/etLocation"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:background="@drawable/edittext_background"
-        android:paddingHorizontal="20dp"
-        android:maxLines="1"
-        android:inputType="text"
-        android:hint="Enter location"
-        android:layout_marginVertical="10dp"
-        android:backgroundTint="@color/city_lights"/>
-
-    <TextView
-        android:id="@+id/txtEventStartTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginVertical="10dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/event_start_time" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etStartTime"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="20dp"
-            android:maxLines="1"
-            android:inputType="text"
-            android:hint="Time"
-            android:layout_marginVertical="10dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/city_lights"/>
-
-        <EditText
-            android:id="@+id/etStartDate"
-            android:layout_width="190dp"
-            android:layout_height="48dp"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="20dp"
-            android:maxLines="1"
-            android:inputType="text"
-            android:hint="Date"
-            android:layout_marginVertical="10dp"
-            android:layout_marginStart="10dp"
-            android:backgroundTint="@color/city_lights"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtEventEndTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginVertical="10dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/event_end_time" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etEndTime"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="20dp"
-            android:maxLines="1"
-            android:inputType="text"
-            android:hint="Time"
-            android:layout_marginVertical="10dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/city_lights"/>
-
-        <EditText
-            android:id="@+id/etEndDate"
-            android:layout_width="190dp"
-            android:layout_height="48dp"
-            android:background="@drawable/edittext_background"
-            android:paddingHorizontal="20dp"
-            android:maxLines="1"
-            android:inputType="text"
-            android:hint="Date"
-            android:layout_marginVertical="10dp"
-            android:layout_marginStart="10dp"
-            android:backgroundTint="@color/city_lights"/>
-    </LinearLayout>
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgEventDescription"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/_68276_200"
-        android:layout_marginVertical="10dp"
-        android:background="@drawable/edittext_background"
-        app:shapeAppearanceOverlay="@style/RoundedCorner"/>
-
-    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="290dp"
-        android:layout_height="48dp"
         android:layout_marginVertical="20dp"
-        android:background="@drawable/social_btn_background"
-        android:text="@string/create"
-        android:textSize="@dimen/text_size"
-        android:textAllCaps="false" />
+        android:orientation="vertical"
+        android:gravity="center">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/event_name" />
+
+        <EditText
+            android:id="@+id/etEventName"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/edittext_background"
+            android:paddingHorizontal="20dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="Enter event name"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/city_lights"/>
+
+        <TextView
+            android:id="@+id/txtLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/location" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/edittext_background"
+            android:paddingHorizontal="20dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="Enter location"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/city_lights"/>
+
+        <TextView
+            android:id="@+id/txtCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/choose_categories" />
+
+        <EditText
+            android:id="@+id/etCategories"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/edittext_background"
+            android:paddingHorizontal="20dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="Enter category"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/city_lights"/>
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/description" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/edittext_background"
+            android:paddingHorizontal="20dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="Enter description"
+            android:layout_marginVertical="10dp"
+            android:backgroundTint="@color/city_lights"/>
+
+        <TextView
+            android:id="@+id/txtEventStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/event_start_time" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--<EditText
+                android:id="@+id/etStartTime"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_background"
+                android:paddingHorizontal="20dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Time"
+                android:layout_marginVertical="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/city_lights"/>-->
+
+            <EditText
+                android:id="@+id/etStartDate"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_background"
+                android:paddingHorizontal="20dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Date"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/city_lights"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtEventEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/event_end_time" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--<EditText
+                android:id="@+id/etEndTime"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_background"
+                android:paddingHorizontal="20dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Time"
+                android:layout_marginVertical="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/city_lights"/>-->
+
+            <EditText
+                android:id="@+id/etEndDate"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_background"
+                android:paddingHorizontal="20dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="Date"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/city_lights"/>
+        </LinearLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgEventDescription"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icons8_image_100__1_"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/edittext_background"
+            app:shapeAppearanceOverlay="@style/RoundedCorner"/>
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/social_btn_background"
+            android:text="@string/create"
+            android:textSize="@dimen/text_size"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+</ScrollView>
