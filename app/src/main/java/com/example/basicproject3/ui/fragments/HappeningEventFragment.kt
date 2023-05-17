@@ -82,19 +82,46 @@ class HappeningEventFragment : Fragment() {
         newRecyclerView.adapter = HappeningEventAdapter(newArrayList)*/
 
         data = FirebaseFirestore.getInstance()
-//        val storage = FirebaseStorage.getInstance()
+        val storage = FirebaseStorage.getInstance()
 
-        data.collection("categories").document("concert").collection("events").get()
+        /*data.collection("events").get()
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
                         val happening: HappeningEvent? = data.toObject(HappeningEvent::class.java)
                         if (happening != null) {
                             newArrayList.add(happening)
-//                            Toast.makeText(activity, "$organizer", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(activity, "$it", Toast.LENGTH_SHORT).show()
                         }
                     }
                     newRecyclerView.adapter = HappeningEventAdapter(newArrayList) // Danh cho viec xu ly khi chua xu ly image tuwf storage
+                }
+            }
+            .addOnFailureListener() {
+                Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
+            }*/
+
+        data.collection("events").get()
+            .addOnSuccessListener {
+                if (!it.isEmpty) {
+                    for (data in it.documents) {
+                        val happening: HappeningEvent? = data.toObject(HappeningEvent::class.java)
+                        if (happening != null) {
+                            val imagePath = "events/${data.id}"
+//                            Toast.makeText(activity, "${data.id}", Toast.LENGTH_SHORT).show()
+                            val imageRef = storage.getReference(imagePath)
+                            imageRef.downloadUrl.addOnSuccessListener { uri ->
+                                happening.events = uri.toString()
+                                newArrayList.add(happening)
+                                newRecyclerView.adapter = HappeningEventAdapter(newArrayList)
+
+//                                Toast.makeText(activity, "$it", Toast.LENGTH_SHORT).show()
+                            }
+//                            organizerList.add(organizer)
+//                            Toast.makeText(activity, "$organizer", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+//                    recyclerView.adapter = OrganizersToFollowAdapter(organizerList) // Danh cho viec xu ly khi chua xu ly image tuwf storage
                 }
             }
             .addOnFailureListener() {

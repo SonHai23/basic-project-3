@@ -126,7 +126,6 @@ class HomeFragment : Fragment() {
             .addOnFailureListener() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }
-
 //        recyclerView.adapter = OrganizersToFollowAdapter(organizerList)
     }
 

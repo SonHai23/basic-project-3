@@ -1,8 +1,10 @@
 package com.example.basicproject3.ui.fragments
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,21 +14,27 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.adapters.DatePickerBindingAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.basicproject3.MyEventActivity
 import com.example.basicproject3.R
 import com.example.basicproject3.auth.LoginActivity
 import com.example.basicproject3.databinding.FragmentCreateEventBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.util.Calendar
 
 class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private var _binding: FragmentCreateEventBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
+    private var imageReference = Firebase.storage.reference
+    private var currentFile: Uri? = null
 
     var day = 0
     var month = 0
@@ -101,6 +109,14 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
 
     private fun handleCreateClick() {
         val db: FirebaseFirestore = Firebase.firestore
+
+        binding.imgEventDescription.setOnClickListener() {
+            Intent(Intent.ACTION_PICK).also {
+                it.type = "image/*"
+                imageLauncher.launch(it)
+            }
+        }
+
         binding.btnCreate.setOnClickListener {
             val eventName = binding.etEventName.text.toString().trim()
             val location = binding.etLocation.text.toString().trim()
@@ -127,20 +143,56 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
                     "host" to uid,
                 )
 
-                db.collection("categories").document(categories).collection("events").document()
-                    .set(infoEvent)
+                // Xu ly dua du lieu vao firestore
+                db.collection("events")
+                    .add(infoEvent)
                     .addOnSuccessListener {
+//                        val imageId = java.util.UUID.randomUUID().toString()
+                        val imageId = "${it.id}"
+                        uploadImageToStorage(imageId) // Luu anh vao storage voi ten la id document ngau nhien
                         Log.d("TAG", "DocumentSnapshot successfully written!")
                     }
                     .addOnFailureListener { e ->
                         Log.w("TAG", "Error writing document", e)
                     }
 
+                /*val imageId = java.util.UUID.randomUUID().toString()
+                uploadImageToStorage(imageId)*/
+
+//                Toast.makeText(activity, "$test", Toast.LENGTH_SHORT).show()
+
                 val intent = Intent(activity, MyEventActivity::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(activity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private val imageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.data?.let {
+                currentFile = it
+                binding.imgEventDescription.setImageURI(it)
+            }
+        } else {
+            Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun uploadImageToStorage(filename: String) {
+        try {
+            currentFile?.let {
+                imageReference.child("events/$filename").putFile(it)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Uploaded", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Error on upload", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
