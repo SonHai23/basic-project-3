@@ -22,7 +22,7 @@ class EventListAdapter(
     class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgView: ShapeableImageView = view.findViewById(R.id.imgEvent)
         val textViewTitle: TextView = view.findViewById(R.id.txtEventTitle)
-        val textViewEventDuration: TextView = view.findViewById(R.id.txtEventDuration)
+        val textViewEventDuration: TextView = view.findViewById(R.id.txtEventStartTime)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {

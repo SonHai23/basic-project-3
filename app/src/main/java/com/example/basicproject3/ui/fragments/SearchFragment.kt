@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -49,16 +50,28 @@ class SearchFragment : Fragment() {
             clearFilteredEventsAndAdapter()
         }
 
-        loadEvents()
 
+        loadEvents()
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    binding.searchBar.clearFocus()
+                    clearFilteredEventsAndAdapter()
+                }
+            })
         return binding.root
     }
 
-    private fun onSearchListener(context: Context) {
+    override fun onResume() {
+        super.onResume()
+        clearFilteredEventsAndAdapter()
+    }
 
+    private fun onSearchListener(context: Context) {
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
