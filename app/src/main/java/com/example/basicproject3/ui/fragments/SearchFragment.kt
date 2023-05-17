@@ -37,10 +37,24 @@ class SearchFragment : Fragment() {
             binding.progressBarCategory.visibility = View.VISIBLE
             val categoryList = searchViewModel.getCategoryList()
             val recyclerView = binding.recyclerViewCategories
+//            val eventList = searchViewModel.getEventsByName()
             recyclerView.adapter = CategoryListAdapter(categoryList)
+//            binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//                override fun onQueryTextSubmit(query: String?): Boolean {
+//                    binding.searchBar.clearFocus()
+//                    if (eventList != null) {
+//                        binding.recyclerViewEvents.adapter = EventListAdapter(activity, )
+//                    }
+//                }
+//
+//                override fun onQueryTextChange(p0: String?): Boolean {
+//                    TODO("Not yet implemented")
+//                }
+//
+//
+//            })
             binding.progressBarCategory.visibility = View.GONE
         }
-
         //Clear focus from the search bar when clicked outside
         binding.searchPage.setOnClickListener { binding.searchBar.clearFocus() }
 

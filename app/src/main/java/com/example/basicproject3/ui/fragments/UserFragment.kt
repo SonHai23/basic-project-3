@@ -56,12 +56,8 @@ class UserFragment : Fragment() {
         lifecycleScope.launch {
             userViewModel.profileAvatar.observe(viewLifecycleOwner) {
                 // Su dung Glide de load image
-                Glide.with(binding.fragmentUser).load(savedInstanceState?.getString("avatar"))
-                    .into(binding.imgAvatar)
                 if (it != null) {
                     Glide.with(binding.fragmentUser).load(it).into(binding.imgAvatar)
-                } else {
-                    binding.imgAvatar.setImageResource(R.drawable.avatar_profile_default)
                 }
             }
 

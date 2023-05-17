@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/event"
+    android:id="@+id/fragment_event"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/ViewsBackground"
@@ -13,13 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <ProgressBar
-            android:id="@+id/progressBarEventPage"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:visibility="gone" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgEvent"

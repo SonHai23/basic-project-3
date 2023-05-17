@@ -10,20 +10,16 @@ class EventsByCategoryViewModel : ViewModel() {
 
     private val db = Firebase.firestore
 
-    suspend fun getEventList(categoryName: String): MutableList<Event> {
+    suspend fun getEventListByCategory(category: String): MutableList<Event> {
         val eventList = mutableListOf<Event>()
 
         //lấy về danh sách event liên quan đến category
-        val querySnapshot = db.collection("/categories/$categoryName/events").get().await()
+        val querySnapshot =
+            db.collection("events").whereEqualTo("category", category).get().await()
         for (document in querySnapshot) {
-            eventList.add(
-                Event(
-                    document.id,
-                    document.data["host"] as String,
-                    document.data["title"] as String
-                )
-            )
+            eventList.add(document.toObject(Event::class.java))
         }
         return eventList
     }
+
 }

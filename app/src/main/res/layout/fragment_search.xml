@@ -13,6 +13,7 @@
         style="@style/SearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:queryHint="Enter event name"
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
         android:layout_marginTop="@dimen/title_vertical_margin"
         android:iconifiedByDefault="false"
@@ -26,6 +27,22 @@
         android:layout_margin="@dimen/title_vertical_margin"
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
         android:text="@string/title_categories" />
+
+    <LinearLayout
+        android:id="@+id/eventList"
+        style="@style/ViewsBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEvents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:layoutManager="LinearLayoutManager" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/categoryList"

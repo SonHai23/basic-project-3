@@ -38,13 +38,12 @@ class EventsByCategoryFragment : Fragment() {
             binding.txtEventsTitle.text = title
 
             //set event list using adapter
-            val eventList = eventsByCategoryViewModel.getEventList(category)
-            val recyclerView = binding.recyclerViewEvents
-            recyclerView.adapter = activity?.let { EventListAdapter(it, category, eventList) }
+            val eventList = eventsByCategoryViewModel.getEventListByCategory(category)
+            val recyclerView = binding.recyclerViewEventsByCategory
+            recyclerView.adapter = activity?.let { EventListAdapter(it, eventList) }
 
             binding.progressBarEvent.visibility = View.GONE
         }
-
 
         return binding.root
     }
