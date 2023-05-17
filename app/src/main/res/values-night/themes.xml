@@ -3,7 +3,7 @@
     <style name="Theme.BasicProject3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pink</item>
-<!--        <item name="android:windowNoTitle">true</item>-->
+        <!--        <item name="android:windowNoTitle">true</item>-->
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/primary</item>
         <!-- Secondary brand color. -->
@@ -55,6 +55,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal">@dimen/title_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/title_vertical_margin</item>
+    </style>
+
+    <style name="CardEventName" parent="DefaultTextColor">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/normal_text_margin</item>
+        <item name="android:gravity">start|center_vertical</item>
     </style>
 
     <style name="PageTitleBig" parent="PageTitle">

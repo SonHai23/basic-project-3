@@ -21,7 +21,8 @@ class EventListAdapter(
 
     class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgView: ShapeableImageView = view.findViewById(R.id.imgEvent)
-        val textView: TextView = view.findViewById(R.id.txtEventTitle)
+        val textViewTitle: TextView = view.findViewById(R.id.txtEventTitle)
+        val textViewEventDuration: TextView = view.findViewById(R.id.txtEventDuration)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
@@ -37,7 +38,8 @@ class EventListAdapter(
             Glide.with(context).load(it).into(holder.imgView)
         }
 
-        holder.textView.text = event.title
+        holder.textViewTitle.text = event.title
+        holder.textViewEventDuration.text = event.date_start
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EventActivity::class.java)
             val bundle = Bundle().apply {
