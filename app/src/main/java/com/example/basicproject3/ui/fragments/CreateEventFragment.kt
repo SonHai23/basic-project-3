@@ -75,15 +75,19 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
         minute = cal.get(Calendar.MINUTE)
     }
 
+    private var isStartDateSelected = false
+
     private fun pickDate() {
         binding.etStartDate.setOnClickListener {
             getDateTimeCalendar()
+            isStartDateSelected = true
 
             DatePickerDialog(requireContext(), this, year, month, day).show()
         }
 
         binding.etEndDate.setOnClickListener {
             getDateTimeCalendar()
+            isStartDateSelected = false
 
             DatePickerDialog(requireContext(), this, year, month, day).show()
         }
@@ -103,9 +107,18 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
         savedHour = hourOfDay
         savedMinute = minute
 
-        binding.etStartDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")
-        binding.etEndDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")
+        val selectedDateTime = "$savedDay/$savedMonth/$savedYear $savedHour:$savedMinute"
+
+        if (isStartDateSelected) {
+            binding.etStartDate.setText(selectedDateTime)
+        } else {
+            binding.etEndDate.setText(selectedDateTime)
+        }
+
+        /*binding.etStartDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")
+        binding.etEndDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")*/
     }
+
 
     private fun handleCreateClick() {
         val db: FirebaseFirestore = Firebase.firestore
