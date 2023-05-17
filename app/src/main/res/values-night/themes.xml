@@ -97,8 +97,5 @@
     <style name="LayoutColor">
         <item name="android:background">@drawable/custom_layout_dark</item>
     </style>
-    <style name="ThemeOverlay.BasicProject3.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
-        <item name="fullscreenTextColor">@color/light_blue_A400</item>
-    </style>
+
 </resources>
