@@ -27,8 +27,6 @@ class HappeningEventFragment : Fragment() {
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<HappeningEvent>
     private var data = Firebase.firestore
-    /*lateinit var imageID: Array<Int>
-    lateinit var heading: Array<String>*/
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,30 +37,6 @@ class HappeningEventFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRecentlyEventBinding.inflate(inflater, container, false)
-
-        /*imageID = arrayOf(
-            R.drawable.edm1,
-            R.drawable.edm2,
-            R.drawable.edm3,
-            R.drawable.edm4,
-            R.drawable.edm5,
-            R.drawable.edm6,
-            R.drawable.edm7,
-            R.drawable.edm8,
-            R.drawable.edm9,
-        )
-
-        heading = arrayOf(
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-            "Edm",
-        )*/
 
         newRecyclerView = binding.rvHappeningEvent
         newRecyclerView.layoutManager = LinearLayoutManager(activity)
