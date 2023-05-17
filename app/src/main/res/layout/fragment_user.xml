@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/txtUsername"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="3dp"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/txtUserEmail"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center"

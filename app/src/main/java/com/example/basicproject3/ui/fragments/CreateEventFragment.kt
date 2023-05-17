@@ -140,6 +140,7 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
                     "description" to description,
                     "date_start" to eventStartDate,
                     "date_end" to eventEndDate,
+                    "category" to categories,
                     "host" to uid,
                 )
 

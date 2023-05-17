@@ -15,6 +15,13 @@
         android:layout_marginHorizontal="@dimen/title_horizontal_margin"
         android:text="@string/my_events"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyEvents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_event"
+        android:layout_below="@id/txtMyEvent" />
+
     <Button
         android:id="@+id/btnCreateEvent"
         android:layout_width="290dp"
