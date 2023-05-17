@@ -40,7 +40,7 @@ class EventsByCategoryFragment : Fragment() {
             //set event list using adapter
             val eventList = eventsByCategoryViewModel.getEventListByCategory(category)
             val recyclerView = binding.recyclerViewEventsByCategory
-            recyclerView.adapter = activity?.let { EventListAdapter(it, eventList) }
+            recyclerView.adapter = context?.let { EventListAdapter(it, eventList) }
 
             binding.progressBarEvent.visibility = View.GONE
         }

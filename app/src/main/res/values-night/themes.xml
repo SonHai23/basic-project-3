@@ -25,7 +25,7 @@
         <item name="android:background">@drawable/custom_rectangle_dark</item>
     </style>
 
-    <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
+    <style name="DefaultTextColor">
         <item name="android:textColor">@color/silver</item>
     </style>
 
@@ -39,6 +39,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal">@dimen/title_horizontal_margin</item>
         <item name="android:layout_marginVertical">@dimen/text_vertical_margin</item>
+    </style>
+
+    <style name="CardUserName">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/normal_text_margin</item>
     </style>
 
     <style name="PageTitle" parent="DefaultTextColor">
@@ -96,6 +103,11 @@
 
     <style name="LayoutColor">
         <item name="android:background">@drawable/custom_layout_dark</item>
+    </style>
+
+    <style name="CalendarAtStart">
+        <item name="drawableStartCompat">@drawable/ic_calendar_dark</item>
+        <item name="android:drawablePadding">5dp</item>
     </style>
 
 </resources>

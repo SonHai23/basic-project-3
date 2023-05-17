@@ -5,6 +5,7 @@
     android:id="@+id/fragment_event"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="30dp"
     android:theme="@style/ViewsBackground"
     tools:context=".ui.fragments.EventFragment">
 
@@ -27,6 +28,28 @@
             android:id="@+id/txtCurrentEventTitle"
             style="@style/PageTitleBig"
             android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventDuration"
+            style="@style/CalendarAtStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/normal_text_margin"
+            android:ellipsize="end"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/txtTitleHost"
+            style="@style/PageTitle"
+            android:text="@string/title_organizer" />
+
+        <include
+            android:id="@+id/organizer"
+            layout="@layout/item_organizer" />
 
         <TextView
             android:id="@+id/txtTitleDescription"

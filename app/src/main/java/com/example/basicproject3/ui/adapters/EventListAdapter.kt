@@ -1,6 +1,6 @@
 package com.example.basicproject3.ui.adapters
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import com.example.basicproject3.data.model.Event
 import com.google.android.material.imageview.ShapeableImageView
 
 class EventListAdapter(
-    private val context: Activity,
+    private val context: Context,
     private val dataset: List<Event>
 ) : RecyclerView.Adapter<EventListAdapter.EventViewHolder>() {
 

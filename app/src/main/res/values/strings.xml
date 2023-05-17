@@ -54,6 +54,7 @@
     <string name="follow">Follow</string>
     <string name="title_description">Description</string>
     <string name="title_location">Location</string>
+    <string name="title_organizer">Organizer</string>
     <string name="choose_categories">Categories</string>
     <string name="description">Description</string>
 </resources>

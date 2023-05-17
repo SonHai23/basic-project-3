@@ -9,6 +9,8 @@
     <dimen name="title_horizontal_margin">32dp</dimen>
     <dimen name="title_vertical_margin">26dp</dimen>
 
+    <dimen name="normal_text_margin">16dp</dimen>
+    <dimen name="text_horizontal_margin">16dp</dimen>
     <dimen name="text_vertical_margin">16dp</dimen>
 
     <dimen name="item_horizontal_margin">64dp</dimen>

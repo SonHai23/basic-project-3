@@ -5,7 +5,6 @@ import android.os.Parcelable
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -19,11 +18,10 @@ data class Event(
     val date_start: String? = null,
     val date_end: String? = null
 ) : Parcelable {
-    @IgnoredOnParcel
-    private val storage = FirebaseStorage.getInstance()
 
     fun getImgUrl(): Task<Uri> {
-        val imgRef = storage.getReference("profiles/$id")
+        val storage = FirebaseStorage.getInstance()
+        val imgRef = storage.getReference("events/$id")
         return imgRef.downloadUrl
     }
 }
