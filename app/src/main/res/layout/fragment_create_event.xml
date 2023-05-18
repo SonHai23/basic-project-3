@@ -139,11 +139,12 @@
                 android:background="@drawable/edittext_background"
                 android:paddingHorizontal="20dp"
                 android:maxLines="1"
-                android:inputType="text"
+                android:inputType="none"
                 android:hint="Date"
                 android:layout_marginVertical="10dp"
                 android:layout_marginStart="10dp"
                 android:backgroundTint="@color/city_lights"/>
+
         </LinearLayout>
 
         <TextView
@@ -180,7 +181,7 @@
                 android:background="@drawable/edittext_background"
                 android:paddingHorizontal="20dp"
                 android:maxLines="1"
-                android:inputType="text"
+                android:inputType="none"
                 android:hint="Date"
                 android:layout_marginVertical="10dp"
                 android:layout_marginStart="10dp"
