@@ -19,9 +19,9 @@
 
     <LinearLayout
         android:id="@+id/eventList"
-        style="@style/ViewsBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:orientation="vertical">
 
         <ProgressBar
@@ -35,6 +35,7 @@
             android:id="@+id/recyclerViewEventsByCategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
             android:scrollbars="vertical"
             app:layoutManager="LinearLayoutManager" />
     </LinearLayout>

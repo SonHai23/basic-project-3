@@ -9,6 +9,7 @@ import android.widget.SearchView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.basicproject3.data.model.Event
 import com.example.basicproject3.databinding.FragmentSearchBinding
 import com.example.basicproject3.ui.adapters.CategoryListAdapter
@@ -44,16 +45,21 @@ class SearchFragment : Fragment() {
             clearFilteredEventsAndAdapter()
         }
 
-
         loadEvents()
+
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    binding.searchBar.clearFocus()
-                    clearFilteredEventsAndAdapter()
+                    if (binding.searchBar.isFocused) {
+                        binding.searchBar.clearFocus()
+                        clearFilteredEventsAndAdapter()
+                    } else if (binding.recyclerViewEvents.adapter != null) {
+                        binding.recyclerViewEvents.adapter = null
+                    } else findNavController().popBackStack()
                 }
             })
+
         return binding.root
     }
 
@@ -75,7 +81,7 @@ class SearchFragment : Fragment() {
                 } else {
                     clearFilteredEventsAndAdapter()
                 }
-                return true
+                return false
             }
         })
     }
@@ -88,38 +94,19 @@ class SearchFragment : Fragment() {
                 val event = document.toObject(Event::class.java)
                 events.add(event)
             }
-            filterEvents("")
+            filteredEvents.clear()
         }
     }
 
     private fun clearFilteredEventsAndAdapter() {
         filteredEvents.clear()
-        binding.recyclerViewEvents.adapter = EventListAdapter(requireContext(), filteredEvents)
+        binding.recyclerViewEvents.adapter = null
     }
-
-//    fun reloadEventList(context: Context, query: String?) {
-//        val collectionRef = db.collection("events")
-//        if (query != null) {
-//            collectionRef.whereGreaterThanOrEqualTo("title", query)
-//                .whereLessThanOrEqualTo("title", query + "\uF7FF").get().addOnSuccessListener {
-//                    val eventList = mutableListOf<Event>()
-//                    for (document in it) {
-//                        eventList.add(document.toObject(Event::class.java))
-//                    }
-//                    binding.recyclerViewEvents.adapter = EventListAdapter(context, eventList)
-//                }
-//        }
-//    }
 
     private fun filterEvents(query: String) {
         filteredEvents.clear()
-
-        if (query.isEmpty()) {
-            filteredEvents.addAll(events)
-        } else {
-            for (event in events) if (event.title!!.lowercase().contains(query.lowercase())) {
-                filteredEvents.add(event)
-            }
+        for (event in events) if (event.title!!.lowercase().contains(query.lowercase())) {
+            filteredEvents.add(event)
         }
     }
 
