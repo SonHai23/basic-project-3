@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.basicproject3.R
+import com.example.basicproject3.data.Utils
 import com.example.basicproject3.data.model.MyEvent
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.storage.FirebaseStorage
@@ -23,7 +24,7 @@ class MyEventAdapter(private val items: ArrayList<MyEvent>) : RecyclerView.Adapt
         val currentItem : MyEvent = items[position]
         holder.eventTitle.text = currentItem.title
         Glide.with(holder.itemView).load(currentItem.events).into(holder.imageEvent)
-//        holder.dateStart.text = currentItem.title
+        holder.dateStart.text = Utils.formatDate(currentItem.date_start)
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +34,6 @@ class MyEventAdapter(private val items: ArrayList<MyEvent>) : RecyclerView.Adapt
     class MyEventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgEvent)
         val eventTitle : TextView = itemView.findViewById(R.id.txtEventTitle)
-//        val dateStart : TextView = itemView.findViewById(R.id.txtEventTime)
+        val dateStart : TextView = itemView.findViewById(R.id.txtEventStartTime)
     }
 }
