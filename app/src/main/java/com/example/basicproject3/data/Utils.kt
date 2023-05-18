@@ -7,7 +7,7 @@ import java.util.Locale
 class Utils {
     companion object {
         fun formatDate(date: Timestamp?): String? {
-            val formatter = SimpleDateFormat("MMMM dd, yyyy 'at' HH:mm z", Locale.getDefault())
+            val formatter = SimpleDateFormat("MMMM dd, yyyy 'at' HH:mm a", Locale.US)
             return formatter.format(date!!.toDate())
         }
 

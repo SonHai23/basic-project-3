@@ -126,4 +126,8 @@
         <item name="android:src">@drawable/ic_calendar_dark</item>
     </style>
 
+    <style name="Location">
+        <item name="android:src">@drawable/ic_location_dark</item>
+    </style>
+
 </resources>

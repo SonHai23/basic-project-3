@@ -1,5 +1,7 @@
 package com.example.basicproject3.ui.fragments
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.basicproject3.data.Utils.Companion.formatDate
 import com.example.basicproject3.R
-import com.example.basicproject3.data.Utils
 import com.example.basicproject3.data.model.Event
 import com.example.basicproject3.databinding.FragmentEventBinding
 import com.example.basicproject3.ui.viewmodels.EventViewModel
@@ -24,7 +25,7 @@ class EventFragment : Fragment() {
     private var _binding: FragmentEventBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
-    var isFavorite = false
+    private var isFavorite = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +42,12 @@ class EventFragment : Fragment() {
         binding.txtCurrentEventTitle.text = event.title
         binding.txtCurrentEventDescription.text = event.description
         binding.txtCurrentEventLocation.text = event.location
+        binding.txtCurrentEventLocation.setOnClickListener {
+            searchLocationOnGoogleMaps(event.location.toString())
+        }
         binding.txtDateStart.append(formatDate(event.date_start))
         binding.txtDateEnd.append(formatDate(event.date_end))
+
         lifecycleScope.launch {
             val hasTicket = event.hasTicket(auth.currentUser!!.uid)
             if (!hasTicket) {
@@ -53,9 +58,6 @@ class EventFragment : Fragment() {
             } else {
                 binding.btnGetTicket.isClickable = false
             }
-        }
-
-        lifecycleScope.launch {
             val organizer = event.getOrganizer()
             if (organizer != null) {
                 binding.organizer.txtOrganizerName.text = organizer.name
@@ -82,7 +84,7 @@ class EventFragment : Fragment() {
         return binding.root
     }
 
-    fun toggleFavorite(view: View) {
+    private fun toggleFavorite(view: View) {
         isFavorite = !isFavorite
         val heartIcon = view as ImageView
         if (isFavorite) {
@@ -90,6 +92,13 @@ class EventFragment : Fragment() {
         } else {
             heartIcon.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.red))
         }
+    }
+
+    private fun searchLocationOnGoogleMaps(location: String) {
+        val gmmIntentUri = Uri.parse("geo:12.3456, 67.8901?q=$location")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        startActivity(mapIntent)
     }
 
 

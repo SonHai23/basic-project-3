@@ -126,4 +126,8 @@
         <item name="android:src">@drawable/ic_calendar_light</item>
     </style>
 
+    <style name="Location">
+        <item name="android:src">@drawable/ic_location_light</item>
+    </style>
+
 </resources>
