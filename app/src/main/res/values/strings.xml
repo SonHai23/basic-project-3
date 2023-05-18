@@ -57,4 +57,5 @@
     <string name="title_organizer">Organizer</string>
     <string name="choose_categories">Categories</string>
     <string name="description">Description</string>
+    <string name="get_ticket">Get ticket</string>
 </resources>

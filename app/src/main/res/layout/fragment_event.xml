@@ -1,107 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_event"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="30dp"
     android:theme="@style/ViewsBackground"
     tools:context=".ui.fragments.EventFragment">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgCurrentEvent"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/gallery_icon_tr_2_1200x1200"
-        app:shapeAppearanceOverlay="@style/RoundedCorner" />
-
-    <TextView
-        android:id="@+id/txtCurrentEventTitle"
-        style="@style/PageTitleBig"
-        android:textAlignment="center" />
-
-    <RelativeLayout
-        android:id="@+id/dateRelative"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end">
-
-        <ImageView
-            android:id="@+id/imgCalendar"
-            style="@style/Calendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/txtDateStart" />
-
-        <TextView
-            android:id="@+id/txtDateStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="@dimen/normal_text_margin"
-            android:layout_marginEnd="@dimen/normal_text_margin"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="From: "
-            android:textSize="@dimen/text_size_date" />
-
-        <TextView
-            android:id="@+id/txtDateEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/imgCalendar"
-            android:layout_below="@id/txtDateStart"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="@dimen/normal_text_margin"
-            android:layout_marginBottom="@dimen/normal_text_margin"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="To: "
-            android:textSize="@dimen/text_size_date" />
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/txtTitleHost"
-        style="@style/PageTitle"
-        android:text="@string/title_organizer" />
-
-    <include
-        android:id="@+id/organizer"
-        layout="@layout/item_organizer" />
-
-    <TextView
-        android:id="@+id/txtTitleDescription"
-        style="@style/PageTitle"
-        android:text="@string/title_description" />
-
-    <TextView
-        android:id="@+id/txtCurrentEventDescription"
-        style="@style/NormalTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/txtTitleEventLocation"
-        style="@style/PageTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_location" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtCurrentEventLocation"
-        style="@style/NormalTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgCurrentEvent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gallery_icon_tr_2_1200x1200"
+            app:shapeAppearanceOverlay="@style/RoundedCorner" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtCurrentEventTitle"
+            style="@style/PageTitleBig"
+            android:textAlignment="center" />
+
+        <RelativeLayout
+            android:id="@+id/dateRelative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end">
+
+            <ImageView
+                android:id="@+id/imgCalendar"
+                style="@style/Calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/txtDateStart" />
+
+            <TextView
+                android:id="@+id/txtDateStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/normal_text_margin"
+                android:layout_marginEnd="@dimen/normal_text_margin"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="From: "
+                android:textSize="@dimen/text_size_date" />
+
+            <TextView
+                android:id="@+id/txtDateEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtDateStart"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="@dimen/normal_text_margin"
+                android:layout_marginBottom="@dimen/normal_text_margin"
+                android:layout_toEndOf="@id/imgCalendar"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="To: "
+                android:textSize="@dimen/text_size_date" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtTitleHost"
+            style="@style/PageTitle"
+            android:text="@string/title_organizer" />
+
+        <include
+            android:id="@+id/organizer"
+            layout="@layout/item_organizer" />
+
+        <TextView
+            android:id="@+id/txtTitleDescription"
+            style="@style/PageTitle"
+            android:text="@string/title_description" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventDescription"
+            style="@style/NormalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtTitleEventLocation"
+            style="@style/PageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_location" />
+
+        <TextView
+            android:id="@+id/txtCurrentEventLocation"
+            style="@style/NormalTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="20dp"
+            android:text="@string/get_ticket"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+</ScrollView>
