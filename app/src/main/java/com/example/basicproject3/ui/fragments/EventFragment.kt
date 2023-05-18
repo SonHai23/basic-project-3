@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.basicproject3.data.Utils.Companion.formatDate
+import com.example.basicproject3.R
+import com.example.basicproject3.data.Utils
 import com.example.basicproject3.data.model.Event
 import com.example.basicproject3.databinding.FragmentEventBinding
 import com.example.basicproject3.ui.viewmodels.EventViewModel
@@ -20,6 +24,7 @@ class EventFragment : Fragment() {
     private var _binding: FragmentEventBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
+    var isFavorite = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,8 +66,32 @@ class EventFragment : Fragment() {
             }
         }
 
+        /*isFavorite = !isFavorite
+        val heartIcon = view as ImageView
+        if (isFavorite) {
+            heartIcon.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.black))
+        } else {
+            heartIcon.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.white))
+        }*/
+
+        val heartIcon = binding.imdFavourite
+        heartIcon.setOnClickListener {
+            toggleFavorite(it)
+        }
+
         return binding.root
     }
+
+    fun toggleFavorite(view: View) {
+        isFavorite = !isFavorite
+        val heartIcon = view as ImageView
+        if (isFavorite) {
+            heartIcon.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.black))
+        } else {
+            heartIcon.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.red))
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

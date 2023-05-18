@@ -20,6 +20,7 @@ import com.example.basicproject3.ui.adapters.HappeningEventAdapter
 import com.example.basicproject3.ui.adapters.MyEventAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -79,7 +80,9 @@ class MyEventFragment : Fragment() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }*/
 
-        data.collection("events").whereEqualTo("host", uid.toString()).get()
+        data.collection("events")
+            .whereEqualTo("host", uid.toString())
+            .get()
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
