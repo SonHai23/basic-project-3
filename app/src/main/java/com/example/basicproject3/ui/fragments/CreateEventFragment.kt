@@ -30,6 +30,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 //class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
@@ -169,6 +170,7 @@ class CreateEventFragment : Fragment() {
             val location = binding.etLocation.text.toString().trim()
             val categories = binding.etCategories.text.toString().trim()
             val description = binding.etDescription.text.toString().trim()
+            val currentDate = Date()
             /*val eventStartDate = binding.etStartDate.text.toString()
             val eventEndDate = binding.etEndDate.text.toString()*/
 
@@ -189,10 +191,9 @@ class CreateEventFragment : Fragment() {
                     "description" to description,
                     "date_start" to timestampStart,
                     "date_end" to timestampEnd,
-                    /*"date_start" to startTimestamp,
-                    "date_end" to endTimestamp,*/
                     "category" to categories,
                     "host" to uid,
+                    "date_created" to currentDate,
                 )
 
                 // Xu ly dua du lieu vao firestore

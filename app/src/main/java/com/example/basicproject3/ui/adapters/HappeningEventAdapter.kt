@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.basicproject3.R
+import com.example.basicproject3.data.Utils
 import com.example.basicproject3.data.model.HappeningEvent
 import com.example.basicproject3.data.model.OrganizersToFollow
 import com.google.android.material.imageview.ShapeableImageView
@@ -24,7 +25,8 @@ class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : Recy
         val currentItem : HappeningEvent = items[position]
         holder.eventTitle.text = currentItem.title
         Glide.with(holder.itemView).load(currentItem.events).into(holder.imageEvent)
-//        holder.dateStart.text = currentItem.title
+//        holder.dateStart.text = currentItem.date_start
+        holder.dateStart.text = Utils.formatDate(currentItem.date_start)
     }
 
     override fun getItemCount(): Int {
@@ -34,6 +36,6 @@ class HappeningEventAdapter(private val items: ArrayList<HappeningEvent>) : Recy
     class HappeningViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageEvent : ShapeableImageView = itemView.findViewById(R.id.imgEvent)
         val eventTitle : TextView = itemView.findViewById(R.id.txtEventTitle)
-//        val dateStart : TextView = itemView.findViewById(R.id.txtEventTime)
+        val dateStart : TextView = itemView.findViewById(R.id.txtEventStartTime)
     }
 }

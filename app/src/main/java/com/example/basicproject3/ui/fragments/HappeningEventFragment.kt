@@ -17,6 +17,7 @@ import com.example.basicproject3.ui.adapters.HappeningEventAdapter
 import com.example.basicproject3.ui.adapters.OrganizersToFollowAdapter
 import com.example.basicproject3.ui.adapters.PopularEventsAdapter
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -75,7 +76,9 @@ class HappeningEventFragment : Fragment() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }*/
 
-        data.collection("events").get()
+        data.collection("events")
+            .orderBy("date_created", Query.Direction.DESCENDING)
+            .limit(100).get()
             .addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
@@ -87,6 +90,7 @@ class HappeningEventFragment : Fragment() {
                             imageRef.downloadUrl.addOnSuccessListener { uri ->
                                 happening.events = uri.toString()
                                 newArrayList.add(happening)
+                                newArrayList.sortByDescending { it.date_created }
                                 newRecyclerView.adapter = HappeningEventAdapter(newArrayList)
 
 //                                Toast.makeText(activity, "$it", Toast.LENGTH_SHORT).show()
