@@ -3,6 +3,7 @@ package com.example.basicproject3.data.model
 import android.net.Uri
 import android.os.Parcelable
 import com.google.android.gms.tasks.Task
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.parcelize.Parcelize
@@ -15,8 +16,8 @@ data class Event(
     val description: String? = null,
     val category: String? = null,
     val location: String? = null,
-    val date_start: String? = null,
-    val date_end: String? = null
+    val date_start: Timestamp? = null,
+    val date_end: Timestamp? = null
 ) : Parcelable {
 
     fun getImgUrl(): Task<Uri> {

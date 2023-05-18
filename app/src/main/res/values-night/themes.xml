@@ -45,7 +45,9 @@
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/normal_text_margin</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">@dimen/normal_text_margin</item>
+        <item name="android:layout_marginVertical">@dimen/normal_text_margin</item>
     </style>
 
     <style name="PageTitle" parent="DefaultTextColor">
@@ -117,6 +119,10 @@
     <style name="CalendarAtStart">
         <item name="drawableStartCompat">@drawable/ic_calendar_dark</item>
         <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <style name="Calendar">
+        <item name="android:src">@drawable/ic_calendar_dark</item>
     </style>
 
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_event"
     style="@style/LayoutColor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -46,6 +47,6 @@
             android:gravity="center_vertical|end"
             android:maxLines="1"
             android:singleLine="true"
-            android:textSize="@dimen/text_size_small" />
+            android:textSize="@dimen/text_size_date" />
     </LinearLayout>
 </LinearLayout>

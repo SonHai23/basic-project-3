@@ -20,6 +20,7 @@
 
     <dimen name="text_size">17sp</dimen>
     <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_date">11sp</dimen>
     <dimen name="text_size_big">26sp</dimen>
 
     <dimen name="title_size">30sp</dimen>

@@ -9,7 +9,6 @@ import android.widget.SearchView
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.basicproject3.data.model.Event
 import com.example.basicproject3.databinding.FragmentSearchBinding
 import com.example.basicproject3.ui.adapters.CategoryListAdapter
@@ -17,7 +16,6 @@ import com.example.basicproject3.ui.adapters.EventListAdapter
 import com.example.basicproject3.ui.viewmodels.SearchViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
 
@@ -35,12 +33,8 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
 
         //load category list
-        lifecycleScope.launch {
-            binding.progressBarCategory.visibility = View.VISIBLE
-            val categoryList = searchViewModel.getCategoryList()
-            val recyclerViewCategory = binding.recyclerViewCategories
-            recyclerViewCategory.adapter = CategoryListAdapter(categoryList)
-            binding.progressBarCategory.visibility = View.GONE
+        searchViewModel.categoryList.observe(viewLifecycleOwner) {
+            binding.recyclerViewCategories.adapter = CategoryListAdapter(it)
         }
 
         context?.let { onSearchListener(it) }
@@ -91,8 +85,8 @@ class SearchFragment : Fragment() {
         collectionRef.get().addOnSuccessListener { querySnapshot ->
             events.clear()
             for (document in querySnapshot) {
-                val book = document.toObject(Event::class.java)
-                events.add(book)
+                val event = document.toObject(Event::class.java)
+                events.add(event)
             }
             filterEvents("")
         }

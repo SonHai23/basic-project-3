@@ -25,16 +25,6 @@ class UserFragment : Fragment() {
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
 
-    companion object {
-        fun newInstance() = UserFragment()
-        const val AVATAR_KEY = "AVATAR_KEY"
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(AVATAR_KEY, binding.imgAvatar.toString())
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,13 +35,6 @@ class UserFragment : Fragment() {
         val userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
         _binding = FragmentUserBinding.inflate(inflater, container, false)
-
-        val cachedAvatar = savedInstanceState?.getString(AVATAR_KEY).toString()
-
-        userViewModel.profileAvatar.observe(viewLifecycleOwner) {
-            Glide.with(binding.fragmentUser).load(cachedAvatar)
-                .into(binding.imgAvatar)
-        }
 
         lifecycleScope.launch {
             userViewModel.profileAvatar.observe(viewLifecycleOwner) {
