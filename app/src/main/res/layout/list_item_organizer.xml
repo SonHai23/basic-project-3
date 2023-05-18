@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:gravity="center"
     style="@style/LayoutColor"
-    android:elevation="2dp"
     android:layout_margin="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
