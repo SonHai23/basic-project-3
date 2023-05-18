@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,7 @@ import com.example.basicproject3.MyEventActivity
 import com.example.basicproject3.R
 import com.example.basicproject3.auth.LoginActivity
 import com.example.basicproject3.databinding.FragmentCreateEventBinding
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,25 +30,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.util.Calendar
+import java.util.Locale
 
-class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+//class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+class CreateEventFragment : Fragment() {
     private var _binding: FragmentCreateEventBinding? = null
     private val binding get() = _binding!!
     private val auth = FirebaseAuth.getInstance()
     private var imageReference = Firebase.storage.reference
     private var currentFile: Uri? = null
-
-    var day = 0
-    var month = 0
-    var year = 0
-    var hour = 0
-    var minute = 0
-
-    var savedDay = 0
-    var savedMonth = 0
-    var savedYear = 0
-    var savedHour = 0
-    var savedMinute = 0
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,69 +51,17 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
     ): View? {
         _binding = FragmentCreateEventBinding.inflate(inflater, container, false)
 
-        pickDate()
+//        pickDate()
 
         handleCreateClick()
 
         return binding.root
     }
 
-    private fun getDateTimeCalendar() {
-        val cal = Calendar.getInstance()
-        day = cal.get(Calendar.DAY_OF_MONTH)
-        month = cal.get(Calendar.MONTH)
-        year = cal.get(Calendar.YEAR)
-        hour = cal.get(Calendar.HOUR)
-        minute = cal.get(Calendar.MINUTE)
-    }
-
-    private var isStartDateSelected = false
-
-    private fun pickDate() {
-        binding.etStartDate.setOnClickListener {
-            getDateTimeCalendar()
-            isStartDateSelected = true
-
-            DatePickerDialog(requireContext(), this, year, month, day).show()
-        }
-
-        binding.etEndDate.setOnClickListener {
-            getDateTimeCalendar()
-            isStartDateSelected = false
-
-            DatePickerDialog(requireContext(), this, year, month, day).show()
-        }
-    }
-
-    override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        savedDay = dayOfMonth
-        savedMonth = month
-        savedYear = year
-
-        getDateTimeCalendar()
-
-        TimePickerDialog(requireContext(), this, hour, minute, true).show()
-    }
-
-    override fun onTimeSet(p0: TimePicker?, hourOfDay: Int, minute: Int) {
-        savedHour = hourOfDay
-        savedMinute = minute
-
-        val selectedDateTime = "$savedDay/$savedMonth/$savedYear $savedHour:$savedMinute"
-
-        if (isStartDateSelected) {
-            binding.etStartDate.setText(selectedDateTime)
-        } else {
-            binding.etEndDate.setText(selectedDateTime)
-        }
-
-        /*binding.etStartDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")
-        binding.etEndDate.setText("$savedDay/$savedMonth/$savedYear\n$savedHour:$savedMinute")*/
-    }
-
-
     private fun handleCreateClick() {
         val db: FirebaseFirestore = Firebase.firestore
+        val calendarStart = Calendar.getInstance()
+        val calendarEnd = Calendar.getInstance()
 
         binding.imgEventDescription.setOnClickListener() {
             Intent(Intent.ACTION_PICK).also {
@@ -130,29 +70,127 @@ class CreateEventFragment : Fragment(), DatePickerDialog.OnDateSetListener, Time
             }
         }
 
+        /*binding.etStartDate.setOnClickListener {
+            // create DatePickerDialog
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                { _, year, month, dayOfMonth ->
+                    // set calendar with selected date
+                    calendar.set(Calendar.YEAR, year)
+                    calendar.set(Calendar.MONTH, month)
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                    // display selected date on EditText
+                    binding.etStartDate.setText(SimpleDateFormat("dd/MM/yyyy").format(calendar.time))
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+
+            // show DatePickerDialog
+            datePickerDialog.show()
+        }*/
+
+        // Create DatePickerDialog and show it on EditText click
+        binding.etStartDate.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                { _, year, month, dayOfMonth ->
+                    // Save selected date to calendar instance
+                    calendarStart.set(year, month, dayOfMonth)
+
+                    // Create TimePickerDialog to let user choose time
+                    val timePickerDialog = TimePickerDialog(
+                        requireContext(),
+                        { _, hourOfDay, minute ->
+                            // Save selected hour and minute to calendar instance
+                            calendarStart.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                            calendarStart.set(Calendar.MINUTE, minute)
+
+                            // Format selected date and time with desired pattern
+                            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                            val formattedDateTime = dateFormat.format(calendarStart.time)
+
+                            // Set formatted date and time to EditText
+                            binding.etStartDate.setText(formattedDateTime)
+                        },
+                        calendarStart.get(Calendar.HOUR_OF_DAY),
+                        calendarStart.get(Calendar.MINUTE),
+                        false
+                    )
+                    timePickerDialog.show()
+                },
+                calendarStart.get(Calendar.YEAR),
+                calendarStart.get(Calendar.MONTH),
+                calendarStart.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
+        }
+
+        binding.etEndDate.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                { _, year, month, dayOfMonth ->
+                    // Save selected date to calendar instance
+                    calendarEnd.set(year, month, dayOfMonth)
+
+                    // Create TimePickerDialog to let user choose time
+                    val timePickerDialog = TimePickerDialog(
+                        requireContext(),
+                        { _, hourOfDay, minute ->
+                            // Save selected hour and minute to calendar instance
+                            calendarEnd.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                            calendarEnd.set(Calendar.MINUTE, minute)
+
+                            // Format selected date and time with desired pattern
+                            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                            val formattedDateTime = dateFormat.format(calendarEnd.time)
+
+                            // Set formatted date and time to EditText
+                            binding.etEndDate.setText(formattedDateTime)
+                        },
+                        calendarEnd.get(Calendar.HOUR_OF_DAY),
+                        calendarEnd.get(Calendar.MINUTE),
+                        false
+                    )
+                    timePickerDialog.show()
+                },
+                calendarEnd.get(Calendar.YEAR),
+                calendarEnd.get(Calendar.MONTH),
+                calendarEnd.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
+        }
+
+
         binding.btnCreate.setOnClickListener {
             val eventName = binding.etEventName.text.toString().trim()
             val location = binding.etLocation.text.toString().trim()
             val categories = binding.etCategories.text.toString().trim()
             val description = binding.etDescription.text.toString().trim()
-            val eventStartDate = binding.etStartDate.text.toString().trim()
-            val eventEndDate = binding.etEndDate.text.toString().trim()
+            /*val eventStartDate = binding.etStartDate.text.toString()
+            val eventEndDate = binding.etEndDate.text.toString()*/
 
             if (eventName.isNotEmpty() &&
                 location.isNotEmpty() &&
                 categories.isNotEmpty() &&
-                description.isNotEmpty() &&
+                description.isNotEmpty() /*&&
                 eventStartDate.isNotEmpty() &&
-                eventEndDate.isNotEmpty()) {
+                eventEndDate.isNotEmpty()*/) {
 
                 val uid = auth.currentUser?.uid
+                val timestampStart = Timestamp(calendarStart.time)
+                val timestampEnd = Timestamp(calendarEnd.time)
 
                 val infoEvent = hashMapOf(
                     "title" to eventName,
                     "location" to location,
                     "description" to description,
-                    "date_start" to eventStartDate,
-                    "date_end" to eventEndDate,
+                    "date_start" to timestampStart,
+                    "date_end" to timestampEnd,
+                    /*"date_start" to startTimestamp,
+                    "date_end" to endTimestamp,*/
                     "category" to categories,
                     "host" to uid,
                 )
