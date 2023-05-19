@@ -30,7 +30,7 @@ class TicketDetailsActivity : AppCompatActivity() {
         val qrImageView: ImageView = findViewById(R.id.imgViewQrCode)
 
         lifecycleScope.launch {
-            val event = ticket.event
+            val event = ticket.getEvent()
             if (event != null) {
                 binding.eventOfTicket.txtEventTitle.text = event.title
                 event.getImgUrl().addOnSuccessListener {

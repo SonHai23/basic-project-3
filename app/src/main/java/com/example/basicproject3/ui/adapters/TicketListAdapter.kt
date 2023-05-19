@@ -12,8 +12,11 @@ import com.bumptech.glide.Glide
 import com.example.basicproject3.R
 import com.example.basicproject3.TicketDetailsActivity
 import com.example.basicproject3.data.Utils.Companion.formatDate
+import com.example.basicproject3.data.model.Event
 import com.example.basicproject3.data.model.Ticket
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 
 class TicketListAdapter(
     private val context: Context,
@@ -33,23 +36,24 @@ class TicketListAdapter(
         val textViewTicketDuration: TextView = view.findViewById(R.id.txtEventStartTime)
     }
 
-    override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TicketListAdapter.TicketViewHolder, position: Int) {
         val ticket = dataset[position]
-        ticket.getEvent()
-        val event = ticket.event
-        event!!.getImgUrl().addOnSuccessListener {
-            Glide.with(context).load(it).into(holder.imgView)
-        }
-
-        holder.textViewTitle.text = event.title
-        holder.textViewTicketDuration.text = formatDate(event.date_start)
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, TicketDetailsActivity::class.java)
-            val bundle = Bundle().apply {
-                putParcelable("ticket", ticket)
+        val db = FirebaseFirestore.getInstance()
+        db.collection("events").document(ticket.eid!!).get().addOnSuccessListener {
+            val event = it.toObject<Event>()!!
+            event.getImgUrl().addOnSuccessListener { it1 ->
+                Glide.with(context).load(it1).into(holder.imgView)
             }
-            intent.putExtras(bundle)
-            context.startActivity(intent)
+            holder.textViewTitle.text = event.title
+            holder.textViewTicketDuration.text = formatDate(event.date_start)
+            holder.itemView.setOnClickListener {
+                val intent = Intent(context, TicketDetailsActivity::class.java)
+                val bundle = Bundle().apply {
+                    putParcelable("ticket", ticket)
+                }
+                intent.putExtras(bundle)
+                context.startActivity(intent)
+            }
         }
     }
 

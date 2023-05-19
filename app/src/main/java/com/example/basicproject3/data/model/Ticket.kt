@@ -5,6 +5,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import kotlinx.coroutines.tasks.await
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
@@ -19,10 +20,9 @@ data class Ticket(
     @IgnoredOnParcel
     var event: Event? = null
 
-    fun getEvent() {
+    suspend fun getEvent(): Event? {
         val db = FirebaseFirestore.getInstance()
-        db.collection("events").document(eid!!).get().addOnSuccessListener {
-            event = it.toObject<Event>()
-        }
+        val event = db.collection("events").document(eid!!).get().await()
+        return event.toObject<Event>()
     }
 }
