@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.basicproject3.EventActivity
 import com.example.basicproject3.R
-import com.example.basicproject3.data.Utils
+import com.example.basicproject3.data.Utils.Companion.formatDate
 import com.example.basicproject3.data.model.Event
 import com.google.android.material.imageview.ShapeableImageView
 
@@ -39,7 +39,7 @@ class EventListAdapter(
         }
 
         holder.textViewTitle.text = event.title
-        holder.textViewEventDuration.text = Utils.formatDate(event.date_start)
+        holder.textViewEventDuration.text = formatDate(event.date_start)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EventActivity::class.java)
             val bundle = Bundle().apply {
