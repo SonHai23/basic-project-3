@@ -37,4 +37,14 @@ class User() {
         }
         return tickets
     }
+
+    suspend fun getEvents(): List<Event> {
+        val db = Firebase.firestore
+        val docRef = db.collection("events").whereEqualTo("host", uid).get().await()
+        val events = mutableListOf<Event>()
+        for (document in docRef) {
+            events.add(document.toObject(Event::class.java))
+        }
+        return events
+    }
 }

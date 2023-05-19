@@ -7,23 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basicproject3.CreateEventActivity
-import com.example.basicproject3.MyEventActivity
-import com.example.basicproject3.R
-import com.example.basicproject3.data.model.HappeningEvent
 import com.example.basicproject3.data.model.MyEvent
-import com.example.basicproject3.databinding.FragmentGuestBinding
+import com.example.basicproject3.data.model.User
 import com.example.basicproject3.databinding.FragmentMyEventBinding
-import com.example.basicproject3.ui.adapters.HappeningEventAdapter
+import com.example.basicproject3.ui.adapters.EventListAdapter
 import com.example.basicproject3.ui.adapters.MyEventAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.launch
 
 class MyEventFragment : Fragment() {
     private var _binding: FragmentMyEventBinding? = null
@@ -44,12 +41,18 @@ class MyEventFragment : Fragment() {
     ): View {
         _binding = FragmentMyEventBinding.inflate(inflater, container, false)
 
-        recyclerView = binding.rvMyEvents
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.setHasFixedSize(true)
+//        recyclerView = binding.rvMyEvents
+//        recyclerView.layoutManager = LinearLayoutManager(activity)
+//        recyclerView.setHasFixedSize(true)
 
-        myEventList = arrayListOf()
-        getMyEventEvent()
+//        myEventList = arrayListOf()
+//        getMyEventEvent()
+
+        lifecycleScope.launch {
+            val user = User()
+            val myEvents = user.getEvents()
+            binding.rvMyEvents.adapter = EventListAdapter(requireContext(),myEvents)
+        }
 
         binding.btnCreateEvent.setOnClickListener() {
             val intent = Intent(activity, CreateEventActivity::class.java)
