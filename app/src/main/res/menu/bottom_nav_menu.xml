@@ -16,10 +16,10 @@
         android:icon="@drawable/ticket"
         android:title="@string/title_ticket" />
 
-    <item
+    <!--<item
         android:id="@+id/navigation_favourite"
         android:icon="@drawable/favourite"
-        android:title="@string/title_favourite" />
+        android:title="@string/title_favourite" />-->
 
     <item
         android:id="@+id/navigation_profile"

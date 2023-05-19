@@ -17,11 +17,11 @@
         android:label="@string/title_ticket"
         tools:layout="@layout/fragment_ticket" />
 
-    <fragment
+    <!--<fragment
         android:id="@+id/navigation_favourite"
         android:name="com.example.basicproject3.ui.fragments.FavouriteFragment"
         android:label="@string/title_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" />-->
 
     <navigation
         android:id="@+id/navigation_profile"
