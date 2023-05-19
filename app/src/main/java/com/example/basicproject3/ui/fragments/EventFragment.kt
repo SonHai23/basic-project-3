@@ -14,7 +14,9 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.basicproject3.data.Utils.Companion.formatDate
 import com.example.basicproject3.R
+import com.example.basicproject3.TicketDetailsActivity
 import com.example.basicproject3.data.model.Event
+import com.example.basicproject3.data.model.Ticket
 import com.example.basicproject3.databinding.FragmentEventBinding
 import com.example.basicproject3.ui.viewmodels.EventViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -50,13 +52,23 @@ class EventFragment : Fragment() {
 
         lifecycleScope.launch {
             val hasTicket = event.hasTicket(auth.currentUser!!.uid)
+            val ticket: Ticket = event.buyTicket(auth.currentUser!!.uid)
+            val hadTicketText = "You already have a ticket for this event!"
             if (!hasTicket) {
                 binding.btnGetTicket.setOnClickListener {
-                    event.buyTicket(auth.currentUser!!.uid)
                     it.isClickable = false
+
+                    binding.btnGetTicket.text = hadTicketText
+                    val intent = Intent(context, TicketDetailsActivity::class.java)
+                    val bundle = Bundle().apply {
+                        putParcelable("ticket", ticket)
+                    }
+                    intent.putExtras(bundle)
+                    context?.startActivity(intent)
                 }
             } else {
                 binding.btnGetTicket.isClickable = false
+                binding.btnGetTicket.text = hadTicketText
             }
             val organizer = event.getOrganizer()
             if (organizer != null) {

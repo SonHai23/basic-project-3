@@ -138,7 +138,7 @@
         <Button
             android:id="@+id/btnGetTicket"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_gravity="end"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="-10dp"

@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Ticket(
-    @DocumentId val id: String? = null,
-    val uid: String,
-    val date_purchased: Timestamp
+    @DocumentId var id: String? = null,
+    val uid: String? = null,
+    val date_purchased: Timestamp? = null
 ) : Parcelable {
 }

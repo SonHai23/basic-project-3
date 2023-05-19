@@ -52,7 +52,10 @@ data class Event(
         return !ticketCollection.whereEqualTo("uid", currentUserId).get().await().isEmpty
     }
 
-    fun buyTicket(currentUserId: String) {
-        ticketCollection.add(Ticket(uid = currentUserId, date_purchased = currentTimestamp()))
+    suspend fun buyTicket(currentUserId: String): Ticket {
+        val ticket = Ticket(uid = currentUserId, date_purchased = currentTimestamp())
+        val documentReference = ticketCollection.add(ticket).await()
+        val documentSnapshot = documentReference.get().await()
+        return documentSnapshot.toObject(Ticket::class.java)!!
     }
 }

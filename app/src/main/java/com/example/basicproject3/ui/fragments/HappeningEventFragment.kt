@@ -8,14 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basicproject3.R
 import com.example.basicproject3.data.model.HappeningEvent
-import com.example.basicproject3.data.model.OrganizersToFollow
-import com.example.basicproject3.data.model.PopularEvents
 import com.example.basicproject3.databinding.FragmentRecentlyEventBinding
 import com.example.basicproject3.ui.adapters.HappeningEventAdapter
-import com.example.basicproject3.ui.adapters.OrganizersToFollowAdapter
-import com.example.basicproject3.ui.adapters.PopularEventsAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -27,6 +22,7 @@ class HappeningEventFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<HappeningEvent>
+//    private lateinit var eventList: MutableList<Event>
     private var data = Firebase.firestore
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +30,8 @@ class HappeningEventFragment : Fragment() {
     }*/
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentRecentlyEventBinding.inflate(inflater, container, false)
 
         newRecyclerView = binding.rvHappeningEvent
@@ -46,11 +41,29 @@ class HappeningEventFragment : Fragment() {
         newArrayList = arrayListOf()
         getHappeningEvent()
 
+//        eventList = mutableListOf()
+//        getHappeningEvents()
+//        binding.rvHappeningEvent.adapter = EventListAdapter(requireContext(), eventList)
+
         return binding.root
     }
 
-    private fun getHappeningEvent() {
-        /*for (i in imageID.indices) {
+//    private fun getHappeningEvents() {
+//        data.collection("events").orderBy("date_created", Query.Direction.DESCENDING).limit(100)
+//            .get()
+//            .addOnSuccessListener {
+//                val list = mutableListOf<Event>()
+//                for (document in it) {
+//                    if (it != null) {
+//                        val event = document.toObject<Event>()
+//                        list.add(event)
+//                    }
+//                }
+//                eventList.addAll(list)
+//            }
+//    }
+
+    private fun getHappeningEvent() {/*for (i in imageID.indices) {
             val happeningEvents = HappeningEvent(imageID[i], heading[i])
             newArrayList.add(happeningEvents)
         }
@@ -76,10 +89,8 @@ class HappeningEventFragment : Fragment() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }*/
 
-        data.collection("events")
-            .orderBy("date_created", Query.Direction.DESCENDING)
-            .limit(100).get()
-            .addOnSuccessListener {
+        data.collection("events").orderBy("date_created", Query.Direction.DESCENDING).limit(100)
+            .get().addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {
                         val happening: HappeningEvent? = data.toObject(HappeningEvent::class.java)
@@ -101,8 +112,7 @@ class HappeningEventFragment : Fragment() {
                     }
 //                    recyclerView.adapter = OrganizersToFollowAdapter(organizerList) // Danh cho viec xu ly khi chua xu ly image tuwf storage
                 }
-            }
-            .addOnFailureListener() {
+            }.addOnFailureListener() {
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_SHORT).show()
             }
     }
