@@ -8,6 +8,7 @@ import com.google.firebase.firestore.Source
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.tasks.await
 
 class User() {
     private val auth = FirebaseAuth.getInstance()
@@ -25,5 +26,15 @@ class User() {
     fun getAvatar(): Task<Uri> {
         val storageRef = storage.reference.child("profiles/${uid}")
         return storageRef.downloadUrl
+    }
+
+    suspend fun getTickets(): List<Ticket> {
+        val db = Firebase.firestore
+        val docRef = db.collectionGroup("tickets").whereEqualTo("uid", uid).get().await()
+        val tickets = mutableListOf<Ticket>()
+        for (document in docRef) {
+            tickets.add(document.toObject(Ticket::class.java))
+        }
+        return tickets
     }
 }
