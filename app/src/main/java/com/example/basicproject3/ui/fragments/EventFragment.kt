@@ -65,7 +65,7 @@ class EventFragment : Fragment() {
                 binding.btnGetTicket.isClickable = false
                 binding.btnGetTicket.text = hadTicketText
             }
-            val organizer = event.getOrganizer()
+            val organizer = event.getOrganizer(event.host!!)
             if (organizer != null) {
                 binding.organizer.txtOrganizerName.text = organizer.name
                 organizer.getProfileAvatar().addOnSuccessListener {

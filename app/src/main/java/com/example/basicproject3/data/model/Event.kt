@@ -35,8 +35,8 @@ data class Event(
         return imgRef.downloadUrl
     }
 
-    suspend fun getOrganizer(): Organizer? {
-        val querySnapshot = db.collection("users").document(id.toString()).get().await()
+    suspend fun getOrganizer(uid: String): Organizer? {
+        val querySnapshot = db.collection("users").document(uid).get().await()
         return querySnapshot.toObject(Organizer::class.java)
     }
 
