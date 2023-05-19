@@ -52,12 +52,11 @@ class EventFragment : Fragment() {
 
         lifecycleScope.launch {
             val hasTicket = event.hasTicket(auth.currentUser!!.uid)
-            val ticket: Ticket = event.buyTicket(auth.currentUser!!.uid)
             val hadTicketText = "You already have a ticket for this event!"
             if (!hasTicket) {
+                val ticket = event.buyTicket()
                 binding.btnGetTicket.setOnClickListener {
                     it.isClickable = false
-
                     binding.btnGetTicket.text = hadTicketText
                     openTicketDetails(ticket)
                 }
@@ -108,7 +107,7 @@ class EventFragment : Fragment() {
         startActivity(mapIntent)
     }
 
-    private fun openTicketDetails(ticket: Ticket){
+    private fun openTicketDetails(ticket: Ticket) {
         val intent = Intent(context, TicketDetailsActivity::class.java)
         val bundle = Bundle().apply {
             putParcelable("ticket", ticket)

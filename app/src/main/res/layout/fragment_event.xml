@@ -17,8 +17,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgCurrentEvent"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/gallery_icon_tr_2_1200x1200"

@@ -13,7 +13,7 @@ import kotlinx.coroutines.tasks.await
 class User() {
     private val auth = FirebaseAuth.getInstance()
     private val storage = FirebaseStorage.getInstance()
-    private val uid = auth.currentUser?.uid
+    val uid = auth.currentUser?.uid
 
     fun getUsername(): Task<DocumentSnapshot> {
         val db = Firebase.firestore

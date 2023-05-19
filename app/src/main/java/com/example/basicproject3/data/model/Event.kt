@@ -52,7 +52,8 @@ data class Event(
         return !ticketCollection.whereEqualTo("uid", currentUserId).get().await().isEmpty
     }
 
-    suspend fun buyTicket(currentUserId: String): Ticket {
+    suspend fun buyTicket(): Ticket {
+        val currentUserId = User().uid
         val ticket = Ticket(uid = currentUserId, eid = id, date_purchased = currentTimestamp())
         val documentReference = ticketCollection.add(ticket).await()
         val documentSnapshot = documentReference.get().await()

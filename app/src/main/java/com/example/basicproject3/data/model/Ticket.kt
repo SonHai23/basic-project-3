@@ -6,7 +6,6 @@ import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.tasks.await
-import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -16,9 +15,6 @@ data class Ticket(
     val eid: String? = null,
     val date_purchased: Timestamp? = null
 ) : Parcelable {
-
-    @IgnoredOnParcel
-    var event: Event? = null
 
     suspend fun getEvent(): Event? {
         val db = FirebaseFirestore.getInstance()
