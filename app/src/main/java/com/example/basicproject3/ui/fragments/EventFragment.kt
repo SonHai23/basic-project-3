@@ -59,12 +59,7 @@ class EventFragment : Fragment() {
                     it.isClickable = false
 
                     binding.btnGetTicket.text = hadTicketText
-                    val intent = Intent(context, TicketDetailsActivity::class.java)
-                    val bundle = Bundle().apply {
-                        putParcelable("ticket", ticket)
-                    }
-                    intent.putExtras(bundle)
-                    context?.startActivity(intent)
+                    openTicketDetails(ticket)
                 }
             } else {
                 binding.btnGetTicket.isClickable = false
@@ -111,6 +106,15 @@ class EventFragment : Fragment() {
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
         startActivity(mapIntent)
+    }
+
+    private fun openTicketDetails(ticket: Ticket){
+        val intent = Intent(context, TicketDetailsActivity::class.java)
+        val bundle = Bundle().apply {
+            putParcelable("ticket", ticket)
+        }
+        intent.putExtras(bundle)
+        context?.startActivity(intent)
     }
 
 

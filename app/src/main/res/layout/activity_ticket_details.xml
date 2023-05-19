@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TicketDetailsActivity">
+
+    <TextView
+        android:id="@+id/txtTitleTicket"
+        style="@style/PageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/title_vertical_margin"
+        android:layout_marginHorizontal="@dimen/title_horizontal_margin"
+        android:text="@string/title_ticket" />
+
+    <include
+        android:id="@+id/eventOfTicket"
+        layout="@layout/item_event" />
 
     <ImageView
         android:id="@+id/imgViewQrCode"
-        android:layout_width="match_parent"
+        style="@style/LayoutColor"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:elevation="4dp"
+        android:outlineProvider="bounds" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

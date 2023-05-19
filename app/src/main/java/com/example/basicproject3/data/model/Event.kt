@@ -53,7 +53,7 @@ data class Event(
     }
 
     suspend fun buyTicket(currentUserId: String): Ticket {
-        val ticket = Ticket(uid = currentUserId, date_purchased = currentTimestamp())
+        val ticket = Ticket(uid = currentUserId, eid = id, date_purchased = currentTimestamp())
         val documentReference = ticketCollection.add(ticket).await()
         val documentSnapshot = documentReference.get().await()
         return documentSnapshot.toObject(Ticket::class.java)!!
